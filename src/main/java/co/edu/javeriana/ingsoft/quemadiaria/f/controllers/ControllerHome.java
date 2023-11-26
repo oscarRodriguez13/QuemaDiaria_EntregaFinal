@@ -30,7 +30,7 @@ public class ControllerHome implements Initializable {
     private Command settingsCommand;
     private Command updateProfileCommand;
     private Command logOutCommand;
-    private NotificationCommand notificationCommand;
+    private Command notificationCommand;
     @FXML
     private Group cuenta1;
     @FXML

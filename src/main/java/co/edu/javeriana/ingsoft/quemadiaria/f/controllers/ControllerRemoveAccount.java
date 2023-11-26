@@ -36,6 +36,7 @@ public class ControllerRemoveAccount implements Initializable {
     private Command settingsCommand;
     private Command updateProfileCommand;
     private Command logOutCommand;
+    private Command notificationCommand;
     @FXML
     private Group cuenta1;
     @FXML
@@ -56,6 +57,7 @@ public class ControllerRemoveAccount implements Initializable {
         this.settingsCommand = new SettingsCommand(mainApp);
         this.updateProfileCommand = new UpdateProfileCommand(mainApp);
         this.logOutCommand = new LogOutCommand(mainApp);
+        this.notificationCommand = new NotificationCommand(mainApp);
         this.loginDTO = loginDTO;
 
         initialize(null, null);
@@ -117,5 +119,8 @@ public class ControllerRemoveAccount implements Initializable {
 
     @FXML
     public void onClickHelp() { helpCommand.execute(loginDTO); }
+
+    @FXML
+    public void onClickNotification() { notificationCommand.execute(loginDTO); }
 
 }

@@ -29,7 +29,7 @@ public class ControllerHelp implements Initializable {
     private Command settingsCommand;
     private Command updateProfileCommand;
     private Command logOutCommand;
-    private NotificationCommand notificationCommand;
+    private Command notificationCommand;
     @FXML
     private Text textUser;
     @FXML
