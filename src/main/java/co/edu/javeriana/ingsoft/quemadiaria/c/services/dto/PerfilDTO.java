@@ -10,11 +10,14 @@ public class PerfilDTO {
     private int peso;
     private String complexion;
     private String objetivo;
+    private String photoPath;
 
-    public PerfilDTO(int altura, int peso, String complexion, String objetivo) {
+
+    public PerfilDTO(int altura, int peso, String complexion, String objetivo, String photoPath) {
         this.altura = altura;
         this.peso = peso;
         this.complexion = complexion;
         this.objetivo = objetivo;
+        this.photoPath = photoPath;
     }
 }

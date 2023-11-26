@@ -148,7 +148,7 @@ public class UsuarioArchivosRepositorio implements UsuarioRepositorio {
 
             if (((Optional<?>) usuarioExistente).isPresent()) {
                 // Actualizar el perfil del usuario existente
-                Perfil perfil = new Perfil(perfilDTO.getAltura(), perfilDTO.getPeso(), perfilDTO.getComplexion(), perfilDTO.getObjetivo());
+                Perfil perfil = new Perfil(perfilDTO.getAltura(), perfilDTO.getPeso(), perfilDTO.getComplexion(), perfilDTO.getObjetivo(), perfilDTO.getPhotoPath());
                 usuarioExistente.get().setPerfil(perfil);
 
                 // Guardar los cambios en el archivo JSON

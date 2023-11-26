@@ -45,6 +45,9 @@ public class ControllerUpdateProfile implements Initializable {
     private Command homeCommand;
     private Command settingsCommand;
     private Command logOutCommand;
+    private Command notificationCommand;
+    @FXML
+    private Text textUser;
     @FXML
     private ImageView profilePicture;
     @FXML
@@ -80,7 +83,7 @@ public class ControllerUpdateProfile implements Initializable {
         this.homeCommand = new HomeCommand(mainApp);
         this.settingsCommand = new SettingsCommand(mainApp);
         this.logOutCommand = new LogOutCommand(mainApp);
-
+        this.notificationCommand = new NotificationCommand(mainApp);
         initialize(null, null);
     }
 
@@ -90,6 +93,7 @@ public class ControllerUpdateProfile implements Initializable {
             ConsultaFacade consultaUsuariosFacade = new ConsultaUsuariosFacade();
             Usuario usuarioActual = consultaUsuariosFacade.consultarUsuario(loginDTO);
 
+            textUser.setText(loginDTO.getUsername());
             textNombreNEW.setText(usuarioActual.getNombre());
             textApellidoNEW.setText(usuarioActual.getApellido());
             textNumIdentidadNEW.setText(usuarioActual.getNumeroDocumento());
@@ -149,13 +153,14 @@ public class ControllerUpdateProfile implements Initializable {
         String altura = textAltura.getText();
         String complexion = textComplexion.getValue();
         String objetivo = textObjetivo.getValue();
+        String photoPath = "";
 
         ConsultaFacade consultaUsuariosFacade = new ConsultaUsuariosFacade();
         Usuario usuarioEnSesion = consultaUsuariosFacade.consultarUsuario(loginDTO);
 
         // Actualizar los datos del usuario con los nuevos valores
         if (usuarioEnSesion != null) {
-            PerfilDTO perfilDTO = new PerfilDTO(Integer.parseInt(peso), Integer.parseInt(altura), complexion, objetivo);
+            PerfilDTO perfilDTO = new PerfilDTO(Integer.parseInt(peso), Integer.parseInt(altura), complexion, objetivo, photoPath);
             ActualizacionPerfilFacade actualizacionPerfilFacade = new ActualizarPerfilFacade();
             actualizacionPerfilFacade.updatePerfil(perfilDTO, usuarioEnSesion);
 
@@ -213,4 +218,16 @@ public class ControllerUpdateProfile implements Initializable {
 
     @FXML
     public void onClickHelp() { helpCommand.execute(loginDTO); }
+
+    @FXML
+    public void onClickNotification() { notificationCommand.execute(loginDTO); }
+
+    @FXML
+    public void onClickChangeProfilePhoto() {
+        try {
+            this.mainApp.showChangeProfilePhoto(loginDTO);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -13,7 +13,7 @@ import java.lang.reflect.Executable;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class ActualizacionPerfilFacadeTest {
+public class ActualizacionPerfilFacadeTest {/*
     private UsuarioRepositorio usuarioRepositorio;
     private ActualizarPerfil actualizarPerfil;
 
@@ -30,7 +30,7 @@ public class ActualizacionPerfilFacadeTest {
         usuarioRepositorio.guardarUsuario(usuario);
 
         actualizarPerfil = new ActualizarPerfil(usuarioRepositorio);
-    }
+    }*/
 
     /*@Test
     void testUpdatePerfil() {
