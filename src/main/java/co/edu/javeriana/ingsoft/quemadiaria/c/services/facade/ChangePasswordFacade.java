@@ -1,8 +1,6 @@
 package co.edu.javeriana.ingsoft.quemadiaria.c.services.facade;
 
-import co.edu.javeriana.ingsoft.quemadiaria.c.services.dto.LoginDTO;
 import co.edu.javeriana.ingsoft.quemadiaria.c.services.services.ChangePasswordService;
-import co.edu.javeriana.ingsoft.quemadiaria.c.services.services.ConsultaUsuarioService;
 
 public class ChangePasswordFacade implements UpdatePasswordFacade {
 
