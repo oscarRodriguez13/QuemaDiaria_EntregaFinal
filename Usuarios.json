@@ -17,11 +17,11 @@
     "notificaciones": [
       {
         "descripcion": "Anuncios",
-        "activo": true
+        "activo": false
       },
       {
         "descripcion": "Actualizaciones",
-        "activo": true
+        "activo": false
       },
       {
         "descripcion": "Nuevas rutinas",

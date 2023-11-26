@@ -4,6 +4,7 @@ import co.edu.javeriana.ingsoft.quemadiaria.a.domain.entities.Credenciales;
 import co.edu.javeriana.ingsoft.quemadiaria.a.domain.entities.Perfil;
 import co.edu.javeriana.ingsoft.quemadiaria.a.domain.entities.Usuario;
 import co.edu.javeriana.ingsoft.quemadiaria.b.usecases.persistence.UsuarioRepositorio;
+import co.edu.javeriana.ingsoft.quemadiaria.c.services.dto.NotificacionDTO;
 import co.edu.javeriana.ingsoft.quemadiaria.c.services.dto.PerfilDTO;
 
 import java.sql.*;
@@ -133,5 +134,10 @@ public class UsuarioBaseDatosRepositorio implements UsuarioRepositorio {
     @Override
     public boolean eliminarUsuarioPorNombreUsuario(String nombreUsuario) {
         return false;
+    }
+
+    @Override
+    public void cambiarEstadoNotificaciones(NotificacionDTO notificacionDTO, Usuario usuario) {
+
     }
 }
