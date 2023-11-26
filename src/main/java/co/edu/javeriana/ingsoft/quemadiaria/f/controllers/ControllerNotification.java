@@ -27,6 +27,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -100,7 +101,7 @@ public class ControllerNotification implements Initializable {
         }
     }
 
-    public void onClickSaveNotifications(ActionEvent actionEvent) {
+    public void onClickSaveNotifications(ActionEvent actionEvent) throws IOException {
         ConsultaFacade consultaUsuariosFacade = new ConsultaUsuariosFacade();
         Usuario usuarioActual = consultaUsuariosFacade.consultarUsuario(loginDTO);
         NotificacionDTO notificacionDTO = new NotificacionDTO();
@@ -125,7 +126,7 @@ public class ControllerNotification implements Initializable {
         showNotificationsChangeMessage();
     }
 
-    public void onClickCancelNotifications(ActionEvent actionEvent) {
+    public void onClickCancelNotifications(ActionEvent actionEvent) throws IOException {
         showCancelNotificationsMessage();
         // Restaura el estado original al cancelar
         CheckBoxAnnouncement.setSelected(originalAnnouncementState);
@@ -154,21 +155,23 @@ public class ControllerNotification implements Initializable {
         return false;
     }
 
-    private void showNotificationsChangeMessage() {
+    private void showNotificationsChangeMessage() throws IOException {
         //String notificationMessage = ChainOfResponsability();
         Alert mensaje = new Alert(Alert.AlertType.INFORMATION);
         mensaje.setHeaderText("¡Éxito!");
         mensaje.setTitle("Notificaciones actualizadas");
         //mensaje.setContentText(notificationMessage);
         mensaje.showAndWait();
+        this.mainApp.showHomeScreen(loginDTO);
     }
 
-    private void showCancelNotificationsMessage() {
+    private void showCancelNotificationsMessage() throws IOException {
         Alert mensaje = new Alert(Alert.AlertType.ERROR);
         mensaje.setHeaderText("Cancelar");
         mensaje.setTitle("Cambios cancelados");
         mensaje.setContentText("Los cambios realizados fueron cancelados por tanto no fueron guardados");
         mensaje.showAndWait();
+        this.mainApp.showHomeScreen(loginDTO);
     }
 
     private void animateAndSetVisible(TranslateTransition slide, double toX, Group groupToShow, Group groupToHide) {

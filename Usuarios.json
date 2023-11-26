@@ -9,10 +9,10 @@
       "contrasenna": "12345@"
     },
     "perfil": {
-      "altura": 0,
-      "peso": 0,
-      "complexion": "",
-      "objetivo": ""
+      "altura": 80,
+      "peso": 190,
+      "complexion": "Normal",
+      "objetivo": "Ganar masa muscular"
     },
     "notificaciones": [
       {
@@ -21,11 +21,11 @@
       },
       {
         "descripcion": "Actualizaciones",
-        "activo": false
+        "activo": true
       },
       {
         "descripcion": "Nuevas rutinas",
-        "activo": true
+        "activo": false
       }
     ]
   }
