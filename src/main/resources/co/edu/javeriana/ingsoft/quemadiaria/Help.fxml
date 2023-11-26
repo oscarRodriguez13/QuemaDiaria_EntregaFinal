@@ -151,11 +151,12 @@
                </font>
             </Text>
             <Hyperlink layoutX="231.0" layoutY="367.0" text="ayudas@quemadiaria.com" textOverrun="CLIP" />
-            <AnchorPane fx:id="setUpAccount" layoutX="428.0" layoutY="82.0" prefHeight="323.0" prefWidth="171.0" style="-fx-background-color: #2b2a2a;" visible="false">
+            <ChoiceBox fx:id="CB_Question" layoutX="223.0" layoutY="129.0" prefWidth="150.0" />
+            <AnchorPane fx:id="setUpAccount" layoutX="428.0" layoutY="82.0" prefHeight="323.0" prefWidth="171.0" style="-fx-background-color: #2b2a2a;">
                <children>
                   <Button fx:id="setUpProfile" layoutX="4.0" layoutY="53.0" mnemonicParsing="false" onAction="#onClickUpdateProfile" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Actualizar perfil" textFill="WHITE" />
                   <Button layoutX="5.0" layoutY="88.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Favoritos" textFill="WHITE" />
-                  <Button layoutX="4.0" layoutY="123.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Notificaciones" textFill="WHITE" />
+                  <Button layoutX="4.0" layoutY="123.0" mnemonicParsing="false" onAction="#onClickNotification" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Notificaciones" textFill="WHITE" />
                   <Button layoutX="5.0" layoutY="158.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Pagos" textFill="WHITE" />
                   <Button layoutX="5.0" layoutY="193.0" mnemonicParsing="false" onAction="#onClickSettings" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Ajustes" textFill="WHITE" />
                   <Button layoutX="5.0" layoutY="229.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Ayuda" textFill="#fe7b09">
@@ -169,7 +170,7 @@
                         <Image url="@RecursosVisuales/Foto-perfil.png" />
                      </image>
                   </ImageView>
-                  <Text fill="WHITE" layoutX="64.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario">
+                  <Text fx:id="textUser" fill="WHITE" layoutX="64.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -178,7 +179,6 @@
                   <Line endX="103.06976318359375" endY="7.62939453125E-6" layoutX="68.0" layoutY="270.0" startX="-66.66665649414062" startY="7.62939453125E-6" stroke="WHITE" strokeWidth="2.0" />
                </children>
             </AnchorPane>
-            <ChoiceBox fx:id="CB_Question" layoutX="223.0" layoutY="129.0" prefWidth="150.0" />
          </children>
       </AnchorPane>
    </children>

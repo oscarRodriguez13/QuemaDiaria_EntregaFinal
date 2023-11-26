@@ -15,6 +15,7 @@ import javafx.scene.Group;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -28,6 +29,9 @@ public class ControllerHelp implements Initializable {
     private Command settingsCommand;
     private Command updateProfileCommand;
     private Command logOutCommand;
+    private NotificationCommand notificationCommand;
+    @FXML
+    private Text textUser;
     @FXML
     private Group cuenta1;
     @FXML
@@ -54,16 +58,21 @@ public class ControllerHelp implements Initializable {
         this.settingsCommand = new SettingsCommand(mainApp);
         this.updateProfileCommand = new UpdateProfileCommand(mainApp);
         this.logOutCommand = new LogOutCommand(mainApp);
+        this.notificationCommand = new NotificationCommand(mainApp);
         this.loginDTO = loginDTO;
+        initialize(null, null);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        setUpAccount.setTranslateX(171);
-        cuenta1.setVisible(true);
-        cuenta2.setVisible(false);
-        CB_Question.setItems(optionsQuestions);
-        answer.setVisible(false);
+        if (loginDTO != null) {
+            textUser.setText(loginDTO.getUsername());
+            setUpAccount.setTranslateX(171);
+            cuenta1.setVisible(true);
+            cuenta2.setVisible(false);
+            CB_Question.setItems(optionsQuestions);
+            answer.setVisible(false);
+        }
     }
     private ObservableList<String> optionsQuestions = FXCollections.observableArrayList(
             "Registrar cuenta",
@@ -156,4 +165,6 @@ public class ControllerHelp implements Initializable {
 
     @FXML
     public void onClickSettings() { settingsCommand.execute(loginDTO); }
+    @FXML
+    public void onClickNotification() { notificationCommand.execute(loginDTO); }
 }
