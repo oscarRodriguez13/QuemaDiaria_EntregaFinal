@@ -5,12 +5,15 @@ import co.edu.javeriana.ingsoft.quemadiaria.c.services.dto.LoginDTO;
 import co.edu.javeriana.ingsoft.quemadiaria.c.services.dto.UsuarioDTO;
 import co.edu.javeriana.ingsoft.quemadiaria.c.services.dto.ResponseDTO;
 import co.edu.javeriana.ingsoft.quemadiaria.c.services.services.AutenticacionService;
+import co.edu.javeriana.ingsoft.quemadiaria.c.services.services.EliminarUsuarioService;
 import co.edu.javeriana.ingsoft.quemadiaria.c.services.services.RegistroUsuarioService;
 
-public class SeguridadFacade implements AutenticacionFacade, RegistroFacade, AdministradorFacade {
+public class SeguridadFacade implements AutenticacionFacade, RegistroFacade, AdministradorFacade, EliminarUsuarioFacade {
 
     private RegistroUsuarioService registroUsuarioService = new RegistroUsuarioService();
     private AutenticacionService autenticacionService = new AutenticacionService();
+
+    private EliminarUsuarioService eliminarUsuarioService = new EliminarUsuarioService();
 
     @Override
     public ResponseDTO<String> login(LoginDTO loginDTO) {
@@ -35,6 +38,12 @@ public class SeguridadFacade implements AutenticacionFacade, RegistroFacade, Adm
     @Override
     public Credenciales recuperarCredenciales(LoginDTO loginDTO){
         return autenticacionService.credencialesUsuario(loginDTO);
+    }
+
+    @Override
+    public boolean eliminarUsuario(LoginDTO loginDTO){
+
+        return eliminarUsuarioService.eliminarUsuario(loginDTO);
     }
 
 

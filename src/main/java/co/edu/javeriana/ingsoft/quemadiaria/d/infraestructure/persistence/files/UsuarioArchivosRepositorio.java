@@ -1,11 +1,9 @@
 package co.edu.javeriana.ingsoft.quemadiaria.d.infraestructure.persistence.files;
 
-import co.edu.javeriana.ingsoft.quemadiaria.a.domain.entities.Notificacion;
 import co.edu.javeriana.ingsoft.quemadiaria.a.domain.entities.Perfil;
 import co.edu.javeriana.ingsoft.quemadiaria.a.domain.entities.Usuario;
 import co.edu.javeriana.ingsoft.quemadiaria.a.domain.exceptions.QuemaDiariaException;
 import co.edu.javeriana.ingsoft.quemadiaria.b.usecases.persistence.UsuarioRepositorio;
-import co.edu.javeriana.ingsoft.quemadiaria.c.services.dto.NotificacionDTO;
 import co.edu.javeriana.ingsoft.quemadiaria.c.services.dto.PerfilDTO;
 import com.google.gson.*;
 
@@ -170,48 +168,11 @@ public class UsuarioArchivosRepositorio implements UsuarioRepositorio {
     }
 
     @Override
-    public void cambiarEstadoNotificaciones(NotificacionDTO notificacionDTO, Usuario usuario) {
-        try {
-            List<Usuario> usuarioList = consultarListaUsuarios();
-
-            // Buscar el usuario que coincida con el usuario proporcionado
-            Optional<Usuario> usuarioExistente = usuarioList.stream()
-                    .filter(u -> u.getCredenciales().getNombreUsuario().equals(usuario.getCredenciales().getNombreUsuario()))
-                    .findFirst();
-
-            if (usuarioExistente.isPresent()) {
-                // Obtener la descripción de la notificación a cambiar
-                String descripcionNotificacion = notificacionDTO.getDescripcion();
-
-                // Buscar la notificación en la lista de notificaciones del usuario
-                Optional<Notificacion> notificacionExistente = usuarioExistente.get().getNotificaciones().stream()
-                        .filter(n -> n.getDescripcion().equals(descripcionNotificacion))
-                        .findFirst();
-
-                if (notificacionExistente.isPresent()) {
-                    // Cambiar el estado de la notificación según el valor proporcionado en notificacionDTO
-                    notificacionExistente.get().setActivo(notificacionDTO.isActivo());
-
-                    // Guardar los cambios en el archivo JSON
-                    FileWriter fileWriter = new FileWriter("Usuarios.json");
-                    Gson gson = new GsonBuilder()
-                            .setPrettyPrinting()
-                            .create();
-                    gson.toJson(usuarioList, fileWriter);
-                    fileWriter.close();
-
-                    System.out.println("Estado de notificación actualizado correctamente");
-                } else {
-                    System.out.println("Notificación no encontrada. No se pudo actualizar el estado.");
-                }
-            } else {
-                System.out.println("Usuario no encontrado. No se pudo actualizar el estado de notificación.");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException("Error al gestionar el archivo", e);
-        }
+    public boolean eliminarUsuarioPorNombreUsuario(String nombreUsuario) {
+        List<Usuario> usuarioList = consultarListaUsuarios();
+        boolean eliminado = usuarioList.removeIf(u -> u.getCredenciales().getNombreUsuario().equals(nombreUsuario));
+        guardarListaUsuarios(usuarioList);
+        return eliminado;
     }
-
 
 }
