@@ -2,7 +2,6 @@
 
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
@@ -16,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.javeriana.ingsoft.quemadiaria.f.controllers.ControllerUpdateProfile">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.javeriana.ingsoft.quemadiaria.f.controllers.ControllerChangeProfilePhoto">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="406.0" layoutY="-2.0" stroke="TRANSPARENT" strokeType="INSIDE" width="600.0" />
       <Rectangle fill="#262424" height="42.0" layoutY="40.0" stroke="TRANSPARENT" strokeType="INSIDE" width="600.0" />
@@ -68,7 +67,7 @@
             </Text>
             <ImageView fitHeight="27.0" fitWidth="18.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@RecursosVisuales/174-1741757_llama-de-fuego-png-logo-de-llama-de.png" />
+                  <Image url="@../../../../../../../../../QuemaDiaria_Final11/QuemaDiaria_Final/src/main/resources/co/edu/javeriana/ingsoft/quemadiaria/RecursosVisuales/174-1741757_llama-de-fuego-png-logo-de-llama-de.png" />
                </image>
             </ImageView>
          </children>
@@ -91,12 +90,12 @@
       <TextField layoutX="329.0" layoutY="49.0" prefHeight="19.0" prefWidth="151.0" promptText="Buscar..." style="-fx-background-color: transparent; -fx-border-color: white;" />
       <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="479.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@RecursosVisuales/icon-search.png" />
+            <Image url="@../../../../../../../../../QuemaDiaria_Final11/QuemaDiaria_Final/src/main/resources/co/edu/javeriana/ingsoft/quemadiaria/RecursosVisuales/icon-search.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="518.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@RecursosVisuales/icon-notification.png" />
+            <Image url="@../../../../../../../../../QuemaDiaria_Final11/QuemaDiaria_Final/src/main/resources/co/edu/javeriana/ingsoft/quemadiaria/RecursosVisuales/icon-notification.png" />
          </image>
          <effect>
             <ColorAdjust brightness="1.0" />
@@ -107,7 +106,7 @@
             <Image url="@RecursosVisuales/FotosDePerfil/Foto-perfil0.png" />
          </image>
       </ImageView>
-      <Text fill="WHITE" layoutX="76.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Actualizar Perfil">
+      <Text fill="WHITE" layoutX="291.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cambiar foto de Perfil">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -135,88 +134,27 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <AnchorPane fx:id="anchorPaneProfile" layoutX="83.0" layoutY="177.0" onMouseEntered="#onMouseEnteredImageView" onMouseExited="#onMouseExitedImageView" prefHeight="120.0" prefWidth="120.0" visible="false">
-         <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#737980d1" height="120.0" stroke="TRANSPARENT" strokeType="INSIDE" width="120.0" />
-            <Text layoutX="17.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cambiar foto">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Text>
-            <Text layoutX="32.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="de perfil">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Text>
-         </children>
-      </AnchorPane>
-      <Text fill="WHITE" layoutX="241.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombres:">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Text>
-      <TextField fx:id="textPeso" layoutX="304.0" layoutY="229.0" prefHeight="25.0" prefWidth="49.0" promptText="kg" />
-      <Text id="textNombre" fx:id="textNombreNEW" fill="WHITE" layoutX="309.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="?" wrappingWidth="184.8085708618164" />
-      <Text fill="WHITE" layoutX="240.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellidos:">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Text>
-      <Text id="textApellido" fx:id="textApellidoNEW" fill="WHITE" layoutX="309.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="184.8085708618164" />
-      <Text fill="WHITE" layoutX="241.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No. Identidad:">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Text>
       <Text id="textNumIdentidad" fx:id="textNumIdentidadNEW" fill="WHITE" layoutX="333.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="184.8085708618164" />
-      <Text fill="WHITE" layoutX="241.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Correo:">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Text>
-      <Text fx:id="textCorreoNEW" fill="WHITE" layoutX="300.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="184.8085708618164" />
-      <Text id="peso" fill="WHITE" layoutX="243.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Peso:">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" layoutX="385.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Altura">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Text>
-      <TextField fx:id="textAltura" layoutX="435.0" layoutY="229.0" prefHeight="25.0" prefWidth="49.0" promptText="cm" />
-      <Text fill="WHITE" layoutX="246.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Complexión:">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Text>
-      <ChoiceBox fx:id="textComplexion" layoutX="328.0" layoutY="269.0" prefWidth="150.0" />
-      <Text fill="WHITE" layoutX="246.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Objetivo:">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Text>
-      <ChoiceBox fx:id="textObjetivo" layoutX="329.0" layoutY="305.0" prefWidth="150.0" />
-      <Button id="buttonGuardar" layoutX="394.0" layoutY="353.0" mnemonicParsing="false" onAction="#onClickSave" style="-fx-background-color: #e4660c;" text="Guardar" textFill="WHITE">
+      <Button id="buttonGuardar" layoutX="411.0" layoutY="340.0" mnemonicParsing="false" onAction="#onClickSavePhoto" style="-fx-background-color: #e4660c;" text="Guardar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button id="buttonCancelar" layoutX="266.0" layoutY="353.0" mnemonicParsing="false" onAction="#onclickGoBack" style="-fx-background-color: #262424;" text="Cancelar" textFill="WHITE">
+      <Button id="buttonCancelar" layoutX="301.0" layoutY="340.0" mnemonicParsing="false" onAction="#onclickGoBack" style="-fx-background-color: #262424;" text="Cancelar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
-         </font></Button>
+         </font>
+      </Button>
       <Group fx:id="cuenta1" layoutX="552.0" layoutY="45.0" onMouseClicked="#onclickCuenta1">
          <children>
             <ImageView fitHeight="25.0" fitWidth="65.0" layoutX="3.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@RecursosVisuales/FotosDePerfil/Foto-perfil0.png" />
+                  <Image url="@../../../../../../../../../QuemaDiaria_Final11/QuemaDiaria_Final/src/main/resources/co/edu/javeriana/ingsoft/quemadiaria/RecursosVisuales/FotosDePerfil/Foto-perfil0.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="10.0" fitWidth="9.0" layoutX="33.32952880859375" layoutY="13.67049789428711" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
                <image>
-                  <Image url="@RecursosVisuales/Triangulo-blanco.png" />
+                  <Image url="@../../../../../../../../../QuemaDiaria_Final11/QuemaDiaria_Final/src/main/resources/co/edu/javeriana/ingsoft/quemadiaria/RecursosVisuales/Triangulo-blanco.png" />
                </image>
             </ImageView>
          </children>
@@ -225,22 +163,54 @@
          <children>
             <ImageView fitHeight="25.0" fitWidth="65.0" layoutX="3.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@RecursosVisuales/FotosDePerfil/Foto-perfil0.png" />
+                  <Image url="@../../../../../../../../../QuemaDiaria_Final11/QuemaDiaria_Final/src/main/resources/co/edu/javeriana/ingsoft/quemadiaria/RecursosVisuales/FotosDePerfil/Foto-perfil0.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="10.0" fitWidth="9.0" layoutX="33.32952880859375" layoutY="13.67049789428711" pickOnBounds="true" preserveRatio="true" rotate="90.0">
                <image>
-                  <Image url="@RecursosVisuales/Triangulo-blanco.png" />
+                  <Image url="@../../../../../../../../../QuemaDiaria_Final11/QuemaDiaria_Final/src/main/resources/co/edu/javeriana/ingsoft/quemadiaria/RecursosVisuales/Triangulo-blanco.png" />
                </image>
             </ImageView>
          </children>
       </Group>
-      <AnchorPane fx:id="setUpAccount" layoutX="431.0" layoutY="80.0" prefHeight="323.0" prefWidth="171.0" style="-fx-background-color: #2b2a2a;">
+      <ImageView fx:id="photo1" fitHeight="67.0" fitWidth="73.0" layoutX="257.0" layoutY="153.0" onMouseClicked="#selectPhoto1" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@RecursosVisuales/FotosDePerfil/Foto-perfil.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="photo2" fitHeight="67.0" fitWidth="73.0" layoutX="351.0" layoutY="153.0" onMouseClicked="#selectPhoto2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@RecursosVisuales/FotosDePerfil/Foto-perfil2.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="photo3" fitHeight="67.0" fitWidth="73.0" layoutX="442.0" layoutY="153.0" onMouseClicked="#selectPhoto3" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@RecursosVisuales/FotosDePerfil/Foto-perfil3.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="photo4" fitHeight="67.0" fitWidth="73.0" layoutX="257.0" layoutY="241.0" onMouseClicked="#selectPhoto4" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@RecursosVisuales/FotosDePerfil/Foto-perfil4.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="photo5" fitHeight="67.0" fitWidth="67.0" layoutX="351.0" layoutY="241.0" onMouseClicked="#selectPhoto5" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@RecursosVisuales/FotosDePerfil/Foto-perfil5.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="photo6" fitHeight="67.0" fitWidth="67.0" layoutX="442.0" layoutY="241.0" onMouseClicked="#selectPhoto6" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@RecursosVisuales/FotosDePerfil/Foto-perfil6.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="74.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecciona tu foto favorita" />
+      <AnchorPane fx:id="setUpAccount" layoutX="432.0" layoutY="81.0" prefHeight="323.0" prefWidth="171.0" style="-fx-background-color: #2b2a2a;" visible="false">
          <children>
-            <Button fx:id="setUpProfile" layoutX="4.0" layoutY="53.0" mnemonicParsing="false" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Actualizar perfil" textFill="#fe7b09">
+            <Button layoutX="4.0" layoutY="53.0" mnemonicParsing="false" onAction="#onClickUpdateProfile" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Actualizar perfil" textFill="#fe7b09">
                <font>
                   <Font name="System Bold" size="12.0" />
-               </font></Button>
+               </font>
+            </Button>
             <Button layoutX="5.0" layoutY="88.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Favoritos" textFill="WHITE" />
             <Button layoutX="4.0" layoutY="123.0" mnemonicParsing="false" onAction="#onClickNotification" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Notificaciones" textFill="WHITE" />
             <Button layoutX="5.0" layoutY="158.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Pagos" textFill="WHITE" />
@@ -249,7 +219,7 @@
             <Button fx:id="logOut" layoutX="5.0" layoutY="279.0" mnemonicParsing="false" onAction="#onClickLogOut" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Cerrar sesión" textFill="WHITE" />
             <ImageView fitHeight="42.0" fitWidth="40.0" layoutX="14.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@RecursosVisuales/FotosDePerfil/Foto-perfil0.png" />
+                  <Image url="@../../../../../../../../../QuemaDiaria_Final11/QuemaDiaria_Final/src/main/resources/co/edu/javeriana/ingsoft/quemadiaria/RecursosVisuales/FotosDePerfil/Foto-perfil0.png" />
                </image>
             </ImageView>
             <Text fx:id="textUser" fill="WHITE" layoutX="64.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario">
@@ -261,10 +231,5 @@
             <Line endX="103.06976318359375" endY="7.62939453125E-6" layoutX="68.0" layoutY="270.0" startX="-66.66665649414062" startY="7.62939453125E-6" stroke="WHITE" strokeWidth="2.0" />
          </children>
       </AnchorPane>
-      <Text fill="#288aef" layoutX="102.0" layoutY="322.0" onMouseClicked="#onClickChangeProfilePhoto" strokeType="OUTSIDE" strokeWidth="0.0" text="Cambiar perfil">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Text>
    </children>
 </AnchorPane>

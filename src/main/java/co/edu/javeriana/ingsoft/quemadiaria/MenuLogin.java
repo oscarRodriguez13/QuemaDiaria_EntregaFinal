@@ -134,4 +134,15 @@ public class MenuLogin extends Application {
         primaryStage.show();
     }
 
+    public void showChangeProfilePhoto(LoginDTO loginDTO) throws IOException {
+        primaryStage.close();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ChangeProfilePhoto.fxml"));
+        Parent root = loader.load();
+        ControllerChangeProfilePhoto controllerChangeProfilePhoto = loader.getController();
+        controllerChangeProfilePhoto.setMainApp(this, loginDTO);
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
 }
