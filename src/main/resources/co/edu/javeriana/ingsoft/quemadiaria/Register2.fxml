@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.javeriana.ingsoft.quemadiaria.f.controllers.ControllerRegister2">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="413.0" layoutY="-12.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+      <ImageView fitHeight="357.0" fitWidth="585.0" layoutX="-129.0" layoutY="-206.0" pickOnBounds="true" preserveRatio="true" rotate="-29.7">
+         <image>
+            <Image url="@RecursosVisuales/fondo-morado-naranja-fondo-borroso_889227-16367.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="292.0" layoutX="137.0" layoutY="67.0" stroke="TRANSPARENT" strokeType="INSIDE" width="287.0" />
+      <Circle fill="WHITE" layoutX="451.0" layoutY="204.0" radius="43.0" stroke="WHITE" strokeType="INSIDE" />
+      <Circle layoutX="451.0" layoutY="204.0" radius="38.0" stroke="WHITE" strokeType="INSIDE" />
+      <ImageView fitHeight="56.0" fitWidth="47.0" layoutX="432.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@RecursosVisuales/174-1741757_llama-de-fuego-png-logo-de-llama-de.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="208.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QUEMADIARIA">
+         <font>
+            <Font name="Arial Black" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#d25100" layoutX="240.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registrarse">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text fill="#595858" layoutX="170.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text fill="#595858" layoutX="170.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Button layoutX="240.0" layoutY="274.0" mnemonicParsing="false" onAction="#onclickRegistrarse" style="-fx-background-color: #FFD200;" text="Registrarse" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <TextField fx:id="nameUserBox" layoutX="169.0" layoutY="176.0" prefHeight="25.0" prefWidth="215.0" promptText="Correo electrónico o usuario" />
+      <Text fx:id="txtIniciarSesion" fill="#1d0dd2" layoutX="248.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Iniciar sesión" underline="true">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </Text>
+      <Accordion />
+      <PasswordField fx:id="passwordBox" layoutX="169.0" layoutY="230.0" prefHeight="25.0" prefWidth="215.0" promptText="Clave de acceso" />
+   </children>
+</AnchorPane>

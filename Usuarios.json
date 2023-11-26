@@ -1,0 +1,18 @@
+[
+  {
+    "numeroDocumento": "12345",
+    "nombre": "pedro",
+    "apellido": "perez",
+    "correo": "pedrito@javeriana.edu.co",
+    "credenciales": {
+      "nombreUsuario": "pedrito",
+      "contrasenna": "12345@"
+    },
+    "perfil": {
+      "altura": 80,
+      "peso": 180,
+      "complexion": "Normal",
+      "objetivo": "Adelgazar y tonificar mi cuerpo"
+    }
+  }
+]
