@@ -6,7 +6,6 @@ import co.edu.javeriana.ingsoft.quemadiaria.b.usecases.RealizarLogin;
 import co.edu.javeriana.ingsoft.quemadiaria.b.usecases.RecuperarCredenciales;
 import co.edu.javeriana.ingsoft.quemadiaria.c.services.dto.LoginDTO;
 import co.edu.javeriana.ingsoft.quemadiaria.c.services.dto.ResponseDTO;
-import co.edu.javeriana.ingsoft.quemadiaria.d.infraestructure.persistence.files.UsuarioArchivosRepositorio;
 
 public class AutenticacionService {
 
