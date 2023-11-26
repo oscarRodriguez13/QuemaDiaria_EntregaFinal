@@ -129,4 +129,9 @@ public class UsuarioBaseDatosRepositorio implements UsuarioRepositorio {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public boolean eliminarUsuarioPorNombreUsuario(String nombreUsuario) {
+        return false;
+    }
 }

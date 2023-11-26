@@ -18,7 +18,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import java.net.URL;
@@ -31,11 +30,10 @@ public class ControllerNotification implements Initializable {
     private Group cuenta2;
     private Command homeCommand;
     private Command settingsCommand;
+    private Command notificationCommand;
     private Command helpCommand;
     private Command updateProfileCommand;
     private Command logOutCommand;
-    @FXML
-    public Text textUser;
     @FXML
     private AnchorPane setUpAccount;
     @FXML
@@ -56,29 +54,25 @@ public class ControllerNotification implements Initializable {
         this.settingsCommand = new SettingsCommand(mainApp);
         this.updateProfileCommand = new UpdateProfileCommand(mainApp);
         this.logOutCommand = new LogOutCommand(mainApp);
+        this.notificationCommand = new NotificationCommand(mainApp);
         this.homeCommand = new HomeCommand(mainApp);
         this.loginDTO = loginDTO;
-        initialize(null, null);
-
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        if (loginDTO != null) {
-            textUser.setText(loginDTO.getUsername());
-            setUpAccount.setTranslateX(171);
-            cuenta1.setVisible(true);
-            cuenta2.setVisible(false);
-            CheckBoxAnnouncement = new CheckBox();
-            CheckBoxNewRoutine = new CheckBox();
-            CheckBoxUpdate = new CheckBox();
-            CheckBoxAnnouncement.setSelected(false);
-            CheckBoxUpdate.setSelected(false);
-            CheckBoxNewRoutine.setSelected(false);
-            originalAnnouncementState = CheckBoxAnnouncement.isSelected();
-            originalUpdateState = CheckBoxUpdate.isSelected();
-            originalNewRoutineState = CheckBoxNewRoutine.isSelected();
-        }
+        setUpAccount.setTranslateX(171);
+        cuenta1.setVisible(true);
+        cuenta2.setVisible(false);
+        CheckBoxAnnouncement = new CheckBox();
+        CheckBoxNewRoutine = new CheckBox();
+        CheckBoxUpdate = new CheckBox();
+        CheckBoxAnnouncement.setSelected(false);
+        CheckBoxUpdate.setSelected(false);
+        CheckBoxNewRoutine.setSelected(false);
+        originalAnnouncementState = CheckBoxAnnouncement.isSelected();
+        originalUpdateState = CheckBoxUpdate.isSelected();
+        originalNewRoutineState = CheckBoxNewRoutine.isSelected();
     }
 
     public void onClickSaveNotifications(ActionEvent actionEvent) {
@@ -186,8 +180,5 @@ public class ControllerNotification implements Initializable {
 
     @FXML
     public void onClickSettings() { settingsCommand.execute(loginDTO); }
-
-    @FXML
-    public void onClickHelp() { helpCommand.execute(loginDTO); }
 
 }

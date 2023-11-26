@@ -12,4 +12,10 @@ public class ConsultaUsuariosFacade implements ConsultaFacade{
     public Usuario consultarUsuario(LoginDTO loginDTO) {
         return consultaUsuarioService.consultarUsuario(loginDTO);
     }
+
+    @Override
+    public Usuario consultarUsuarioPorUsername(String userName) {
+        return consultaUsuarioService.consultarUsuarioPorUserName(userName);
+    }
+
 }

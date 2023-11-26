@@ -3,6 +3,10 @@ package co.edu.javeriana.ingsoft.quemadiaria.f.controllers;
 import co.edu.javeriana.ingsoft.quemadiaria.MenuLogin;
 import co.edu.javeriana.ingsoft.quemadiaria.a.domain.entities.Usuario;
 import co.edu.javeriana.ingsoft.quemadiaria.b.usecases.persistence.UsuarioRepositorio;
+import co.edu.javeriana.ingsoft.quemadiaria.c.services.facade.ChangePasswordFacade;
+import co.edu.javeriana.ingsoft.quemadiaria.c.services.facade.ConsultaFacade;
+import co.edu.javeriana.ingsoft.quemadiaria.c.services.facade.ConsultaUsuariosFacade;
+import co.edu.javeriana.ingsoft.quemadiaria.c.services.facade.UpdatePasswordFacade;
 import co.edu.javeriana.ingsoft.quemadiaria.d.infraestructure.persistence.files.UsuarioArchivosRepositorio;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,7 +22,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class ControllerRecoverPassword implements Initializable{
+public class ControllerRecoverPassword implements Initializable {
     private MenuLogin mainApp;
     private UsuarioRepositorio usuarioRepositorio;
     @FXML
@@ -62,7 +66,8 @@ public class ControllerRecoverPassword implements Initializable{
         String correo = textMail.getText();
         String nombreUsuario = textUser.getText();
 
-        Usuario usuario = usuarioRepositorio.consultarUsuarioPorUserName2(nombreUsuario);
+        ConsultaFacade consultaFacade = new ConsultaUsuariosFacade();
+        Usuario usuario = consultaFacade.consultarUsuarioPorUsername(nombreUsuario);
 
         if (usuario != null && usuario.getNumeroDocumento().equals(numeroDocumento) && usuario.getCorreo().equals(correo)) {
             validarDatos.setVisible(false);
@@ -97,12 +102,15 @@ public class ControllerRecoverPassword implements Initializable{
         if (newPassword.equals(comPassword)) {
             differentPasswords.setVisible(false);
             String userName = textUser.getText();
-            Usuario usuario = usuarioRepositorio.consultarUsuarioPorUserName2(userName);
+
+            ConsultaFacade consultaFacade = new ConsultaUsuariosFacade();
+            Usuario usuario = consultaFacade.consultarUsuarioPorUsername(userName);
 
             if (usuario != null) {
                 if (validarContrasenna(newPassword)) {
                     invalidPassword.setVisible(false);
-                    usuarioRepositorio.actualizarContrasennaUsuario(userName, newPassword);
+                    UpdatePasswordFacade updatePasswordFacade = new ChangePasswordFacade();
+                    updatePasswordFacade.updateUserPassword(userName, newPassword);
                     showPasswordChangedMessage();
                     try {
                         this.mainApp.showLoginScreen();

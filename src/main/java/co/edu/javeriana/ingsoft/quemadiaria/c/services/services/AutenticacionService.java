@@ -6,7 +6,6 @@ import co.edu.javeriana.ingsoft.quemadiaria.b.usecases.RealizarLogin;
 import co.edu.javeriana.ingsoft.quemadiaria.b.usecases.RecuperarCredenciales;
 import co.edu.javeriana.ingsoft.quemadiaria.c.services.dto.LoginDTO;
 import co.edu.javeriana.ingsoft.quemadiaria.c.services.dto.ResponseDTO;
-import co.edu.javeriana.ingsoft.quemadiaria.d.infraestructure.persistence.files.UsuarioArchivosRepositorio;
 
 public class AutenticacionService {
 
@@ -17,8 +16,8 @@ public class AutenticacionService {
 
 
     public AutenticacionService() {
-        this.realizarLogin = new RealizarLogin(new UsuarioArchivosRepositorio());
-        this.recuperarCredenciales = new RecuperarCredenciales(new UsuarioArchivosRepositorio());
+        this.realizarLogin =  RealizarLogin.getInstance();
+        this.recuperarCredenciales = RecuperarCredenciales.getInstance();
     }
 
     public ResponseDTO<String> autenticarUsuario(LoginDTO loginDTO) {

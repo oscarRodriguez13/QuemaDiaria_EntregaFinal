@@ -3,14 +3,24 @@ package co.edu.javeriana.ingsoft.quemadiaria.b.usecases;
 import co.edu.javeriana.ingsoft.quemadiaria.a.domain.entities.Usuario;
 import co.edu.javeriana.ingsoft.quemadiaria.a.domain.exceptions.QuemaDiariaException;
 import co.edu.javeriana.ingsoft.quemadiaria.b.usecases.persistence.UsuarioRepositorio;
+import co.edu.javeriana.ingsoft.quemadiaria.d.infraestructure.persistence.files.UsuarioArchivosRepositorio;
 
 public class RealizarLogin {
 
+    private static RealizarLogin instance;
     private UsuarioRepositorio usuarioRepositorio;
 
-    public RealizarLogin(UsuarioRepositorio usuarioRepositorio) {
+    private RealizarLogin(UsuarioRepositorio usuarioRepositorio) {
         this.usuarioRepositorio = usuarioRepositorio;
     }
+
+    public static RealizarLogin getInstance() {
+        if (instance == null) {
+            instance = new RealizarLogin(new UsuarioArchivosRepositorio());
+        }
+        return instance;
+    }
+
     public void login(String nombreUsuario, String contrasenna) {
 
         Usuario usuario = usuarioRepositorio.consultarUsuarioPorUserName(nombreUsuario);

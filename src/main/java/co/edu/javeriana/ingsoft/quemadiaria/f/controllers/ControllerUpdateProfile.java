@@ -45,9 +45,6 @@ public class ControllerUpdateProfile implements Initializable {
     private Command homeCommand;
     private Command settingsCommand;
     private Command logOutCommand;
-    private Command notificationCommand;
-    @FXML
-    private Text textUser;
     @FXML
     private ImageView profilePicture;
     @FXML
@@ -83,7 +80,7 @@ public class ControllerUpdateProfile implements Initializable {
         this.homeCommand = new HomeCommand(mainApp);
         this.settingsCommand = new SettingsCommand(mainApp);
         this.logOutCommand = new LogOutCommand(mainApp);
-        this.notificationCommand = new NotificationCommand(mainApp);
+
         initialize(null, null);
     }
 
@@ -93,7 +90,6 @@ public class ControllerUpdateProfile implements Initializable {
             ConsultaFacade consultaUsuariosFacade = new ConsultaUsuariosFacade();
             Usuario usuarioActual = consultaUsuariosFacade.consultarUsuario(loginDTO);
 
-            textUser.setText(loginDTO.getUsername());
             textNombreNEW.setText(usuarioActual.getNombre());
             textApellidoNEW.setText(usuarioActual.getApellido());
             textNumIdentidadNEW.setText(usuarioActual.getNumeroDocumento());
@@ -217,7 +213,4 @@ public class ControllerUpdateProfile implements Initializable {
 
     @FXML
     public void onClickHelp() { helpCommand.execute(loginDTO); }
-
-    @FXML
-    public void onClickNotification() { notificationCommand.execute(loginDTO); }
 }

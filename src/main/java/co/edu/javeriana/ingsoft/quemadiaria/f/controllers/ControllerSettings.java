@@ -35,7 +35,6 @@ public class ControllerSettings implements Initializable {
     private Command homeCommand;
     private Command updateProfileCommand;
     private Command logOutCommand;
-    private Command notificationCommand;
     @FXML
     private Group cuenta1;
     @FXML
@@ -56,7 +55,6 @@ public class ControllerSettings implements Initializable {
         this.homeCommand = new HomeCommand(mainApp);
         this.updateProfileCommand = new UpdateProfileCommand(mainApp);
         this.logOutCommand = new LogOutCommand(mainApp);
-        this.notificationCommand = new NotificationCommand(mainApp);
         this.loginDTO = loginDTO;
         initialize(null, null);
     }
@@ -115,9 +113,6 @@ public class ControllerSettings implements Initializable {
 
     @FXML
     public void onClickLogOut()  { logOutCommand.execute(loginDTO); }
-
-    @FXML
-    public void onClickNotification() { notificationCommand.execute(loginDTO); }
 
     @FXML
     public void onRemoveAccount() {
