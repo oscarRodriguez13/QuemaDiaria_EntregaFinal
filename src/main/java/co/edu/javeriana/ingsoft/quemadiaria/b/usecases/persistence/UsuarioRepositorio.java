@@ -21,4 +21,6 @@ public interface UsuarioRepositorio {
 
     void actualizarPerfil(PerfilDTO perfilDTO, Usuario usuarioActual);
 
+    boolean eliminarUsuarioPorNombreUsuario(String nombreUsuario);
+
 }

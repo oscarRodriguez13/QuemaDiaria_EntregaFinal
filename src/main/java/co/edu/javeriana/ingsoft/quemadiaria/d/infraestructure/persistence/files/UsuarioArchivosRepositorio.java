@@ -167,4 +167,12 @@ public class UsuarioArchivosRepositorio implements UsuarioRepositorio {
         }
     }
 
+    @Override
+    public boolean eliminarUsuarioPorNombreUsuario(String nombreUsuario) {
+        List<Usuario> usuarioList = consultarListaUsuarios();
+        boolean eliminado = usuarioList.removeIf(u -> u.getCredenciales().getNombreUsuario().equals(nombreUsuario));
+        guardarListaUsuarios(usuarioList);
+        return eliminado;
+    }
+
 }
