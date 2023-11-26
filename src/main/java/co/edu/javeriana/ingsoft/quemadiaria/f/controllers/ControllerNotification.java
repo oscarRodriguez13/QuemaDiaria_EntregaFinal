@@ -4,7 +4,14 @@ import co.edu.javeriana.ingsoft.quemadiaria.MenuLogin;
 /*import co.edu.javeriana.ingsoft.quemadiaria.b.usecases.AnnouncementNotification;
 import co.edu.javeriana.ingsoft.quemadiaria.b.usecases.NewRoutineNotification;
 import co.edu.javeriana.ingsoft.quemadiaria.b.usecases.UpdatesNotification;*/
+import co.edu.javeriana.ingsoft.quemadiaria.a.domain.entities.Notificacion;
+import co.edu.javeriana.ingsoft.quemadiaria.a.domain.entities.Usuario;
 import co.edu.javeriana.ingsoft.quemadiaria.c.services.dto.LoginDTO;
+import co.edu.javeriana.ingsoft.quemadiaria.c.services.dto.NotificacionDTO;
+import co.edu.javeriana.ingsoft.quemadiaria.c.services.facade.ConsultaFacade;
+import co.edu.javeriana.ingsoft.quemadiaria.c.services.facade.ConsultaUsuariosFacade;
+import co.edu.javeriana.ingsoft.quemadiaria.c.services.facade.GestionNotificacionesFacade;
+import co.edu.javeriana.ingsoft.quemadiaria.c.services.facade.GestionarNotificacionesFacade;
 import co.edu.javeriana.ingsoft.quemadiaria.e.interfaces.Command;
 //import co.edu.javeriana.ingsoft.quemadiaria.e.interfaces.Notification;
 import co.edu.javeriana.ingsoft.quemadiaria.f.controllers.command.*;
@@ -24,6 +31,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ControllerNotification implements Initializable {
+    public CheckBox checkAnuncios;
+    public CheckBox checkActualizaciones;
+    public CheckBox checkNuevasRutinas;
     @FXML
     private Group cuenta1;
     @FXML
@@ -57,27 +67,64 @@ public class ControllerNotification implements Initializable {
         this.notificationCommand = new NotificationCommand(mainApp);
         this.homeCommand = new HomeCommand(mainApp);
         this.loginDTO = loginDTO;
+
+        initialize(null, null);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        setUpAccount.setTranslateX(171);
-        cuenta1.setVisible(true);
-        cuenta2.setVisible(false);
-        CheckBoxAnnouncement = new CheckBox();
-        CheckBoxNewRoutine = new CheckBox();
-        CheckBoxUpdate = new CheckBox();
-        CheckBoxAnnouncement.setSelected(false);
-        CheckBoxUpdate.setSelected(false);
-        CheckBoxNewRoutine.setSelected(false);
-        originalAnnouncementState = CheckBoxAnnouncement.isSelected();
-        originalUpdateState = CheckBoxUpdate.isSelected();
-        originalNewRoutineState = CheckBoxNewRoutine.isSelected();
+        if (loginDTO != null) {
+            ConsultaFacade consultaUsuariosFacade = new ConsultaUsuariosFacade();
+            Usuario usuarioActual = consultaUsuariosFacade.consultarUsuario(loginDTO);
+            for(Notificacion notificacion : usuarioActual.getNotificaciones()){
+                if(notificacion.getDescripcion().equals(checkAnuncios.getText())){
+                    checkAnuncios.setSelected(notificacion.isActivo());
+                } else if (notificacion.getDescripcion().equals(checkActualizaciones.getText())) {
+                    checkActualizaciones.setSelected(notificacion.isActivo());
+                } else if (notificacion.getDescripcion().equals(checkNuevasRutinas.getText())) {
+                    checkNuevasRutinas.setSelected(notificacion.isActivo());
+                }
+            }
+            setUpAccount.setTranslateX(171);
+            cuenta1.setVisible(true);
+            cuenta2.setVisible(false);
+            CheckBoxAnnouncement = new CheckBox();
+            CheckBoxNewRoutine = new CheckBox();
+            CheckBoxUpdate = new CheckBox();
+            CheckBoxAnnouncement.setSelected(false);
+            CheckBoxUpdate.setSelected(false);
+            CheckBoxNewRoutine.setSelected(false);
+            originalAnnouncementState = CheckBoxAnnouncement.isSelected();
+            originalUpdateState = CheckBoxUpdate.isSelected();
+            originalNewRoutineState = CheckBoxNewRoutine.isSelected();
+        }
     }
 
     public void onClickSaveNotifications(ActionEvent actionEvent) {
+        ConsultaFacade consultaUsuariosFacade = new ConsultaUsuariosFacade();
+        Usuario usuarioActual = consultaUsuariosFacade.consultarUsuario(loginDTO);
+        NotificacionDTO notificacionDTO = new NotificacionDTO();
+        GestionNotificacionesFacade gestionNotificacionesFacade = new GestionarNotificacionesFacade();
+        for(Notificacion notificacion : usuarioActual.getNotificaciones()){
+            if(notificacion.isActivo() != checkAnuncios.isSelected() && notificacion.getDescripcion().equals(checkAnuncios.getText())){
+                notificacionDTO.setDescripcion(checkAnuncios.getText());
+                notificacionDTO.setActivo(checkAnuncios.isSelected());
+                gestionNotificacionesFacade.cambiarEstadoNotificaciones(notificacionDTO, usuarioActual);
+            }
+            if (notificacion.isActivo() != checkActualizaciones.isSelected() && notificacion.getDescripcion().equals(checkActualizaciones.getText())) {
+                notificacionDTO.setDescripcion(checkActualizaciones.getText());
+                notificacionDTO.setActivo(checkActualizaciones.isSelected());
+                gestionNotificacionesFacade.cambiarEstadoNotificaciones(notificacionDTO, usuarioActual);
+            }
+            if (notificacion.isActivo() != checkNuevasRutinas.isSelected() && notificacion.getDescripcion().equals(checkNuevasRutinas.getText())) {
+                notificacionDTO.setDescripcion(checkNuevasRutinas.getText());
+                notificacionDTO.setActivo(checkNuevasRutinas.isSelected());
+                gestionNotificacionesFacade.cambiarEstadoNotificaciones(notificacionDTO, usuarioActual);
+            }
+        }
         showNotificationsChangeMessage();
     }
+
     public void onClickCancelNotifications(ActionEvent actionEvent) {
         showCancelNotificationsMessage();
         // Restaura el estado original al cancelar
@@ -123,22 +170,6 @@ public class ControllerNotification implements Initializable {
         mensaje.setContentText("Los cambios realizados fueron cancelados por tanto no fueron guardados");
         mensaje.showAndWait();
     }
-
-    /*pblic String ChainOfResponsability(){
-        String notification = "";
-        Notification n1 = new AnnouncementNotification();
-        Notification n2 = new NewRoutineNotification();
-        Notification n3 = new UpdatesNotification();
-        n1.setNext(n2);
-        n2.setNext(n3);
-
-        // Pasa los estados originales a los métodos check() de tus notificaciones
-        notification += n1.check(originalAnnouncementState);
-        notification += n2.check(originalUpdateState);
-        notification += n3.check(originalNewRoutineState);
-
-        return notification;
-    }*/
 
     private void animateAndSetVisible(TranslateTransition slide, double toX, Group groupToShow, Group groupToHide) {
         Command Animationcommand = new AnimationVisibilityCommand(slide, toX, groupToShow, groupToHide);

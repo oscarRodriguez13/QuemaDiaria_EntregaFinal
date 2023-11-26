@@ -6,13 +6,27 @@
     "correo": "pedrito@javeriana.edu.co",
     "credenciales": {
       "nombreUsuario": "pedrito",
-      "contrasenna": "54321@"
+      "contrasenna": "12345@"
     },
     "perfil": {
-      "altura": 80,
-      "peso": 179,
-      "complexion": "Robusta",
-      "objetivo": "Adelgazar y tonificar mi cuerpo"
-    }
+      "altura": 0,
+      "peso": 0,
+      "complexion": "",
+      "objetivo": ""
+    },
+    "notificaciones": [
+      {
+        "descripcion": "Anuncios",
+        "activo": true
+      },
+      {
+        "descripcion": "Actualizaciones",
+        "activo": true
+      },
+      {
+        "descripcion": "Nuevas rutinas",
+        "activo": true
+      }
+    ]
   }
 ]

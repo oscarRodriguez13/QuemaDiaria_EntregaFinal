@@ -6,6 +6,7 @@ import co.edu.javeriana.ingsoft.quemadiaria.a.domain.exceptions.QuemaDiariaExcep
 import co.edu.javeriana.ingsoft.quemadiaria.b.usecases.RegistrarUsuario;
 import co.edu.javeriana.ingsoft.quemadiaria.c.services.dto.UsuarioDTO;
 import co.edu.javeriana.ingsoft.quemadiaria.c.services.dto.ResponseDTO;
+
 public class RegistroUsuarioService {
 
     private static int cantUsuarios;
@@ -39,4 +40,5 @@ public class RegistroUsuarioService {
         }
 
     }
+
 }

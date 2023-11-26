@@ -7,7 +7,7 @@ public class ChangePasswordService {
 
     public void updateUserPassword(String userName, String newPassword) {
         if (newPassword == null ) {
-            throw new IllegalArgumentException("COntrasenna vacia");
+            throw new IllegalArgumentException("Contrasenna vacia");
         }
         changePassword.updateUserPassword(userName, newPassword);
     }

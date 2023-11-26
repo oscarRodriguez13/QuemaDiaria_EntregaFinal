@@ -1,6 +1,8 @@
 package co.edu.javeriana.ingsoft.quemadiaria.a.domain.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Usuario implements Serializable {
 
@@ -10,6 +12,7 @@ public class Usuario implements Serializable {
     private final String correo;
     private final Credenciales credenciales;
     private Perfil perfil;
+    private List<Notificacion> notificaciones;
 
 
     public Usuario(String numeroDocumento, String correo, Credenciales credenciales) {
@@ -17,6 +20,10 @@ public class Usuario implements Serializable {
         this.correo = correo;
         this.credenciales = credenciales;
         this.perfil = new Perfil(0, 0, "", "");
+        this.notificaciones = new ArrayList<>();
+        this.notificaciones.add(new Notificacion("Anuncios", false));
+        this.notificaciones.add(new Notificacion("Actualizaciones", false));
+        this.notificaciones.add(new Notificacion("Nuevas rutinas", false));
     }
 
     public String getNumeroDocumento() {
@@ -53,6 +60,14 @@ public class Usuario implements Serializable {
 
     public void setPerfil(Perfil perfil) {
         this.perfil = perfil;
+    }
+
+    public List<Notificacion> getNotificaciones() {
+        return notificaciones;
+    }
+
+    public void setNotificaciones(List<Notificacion> notificaciones) {
+        this.notificaciones = notificaciones;
     }
 
     @Override
