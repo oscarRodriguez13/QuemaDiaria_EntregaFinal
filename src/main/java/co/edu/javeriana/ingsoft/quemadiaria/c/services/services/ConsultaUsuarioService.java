@@ -6,7 +6,7 @@ import co.edu.javeriana.ingsoft.quemadiaria.c.services.dto.LoginDTO;
 import co.edu.javeriana.ingsoft.quemadiaria.d.infraestructure.persistence.files.UsuarioArchivosRepositorio;
 
 public class ConsultaUsuarioService {
-    private ConsultarUsuario consultarUsuario = new ConsultarUsuario(new UsuarioArchivosRepositorio());
+    private ConsultarUsuario consultarUsuario = ConsultarUsuario.getInstance();
 
     public Usuario consultarUsuario(LoginDTO loginDTO) {
 

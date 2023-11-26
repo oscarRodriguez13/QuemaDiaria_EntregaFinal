@@ -18,8 +18,8 @@ public class RegistroUsuarioService {
         }
         try {
 
-            UsuarioRepositorio usuarioArchivosRepositorio = new UsuarioArchivosRepositorio();
-            RegistrarUsuario registrarUsuario = new RegistrarUsuario(usuarioArchivosRepositorio);
+            //UsuarioRepositorio usuarioArchivosRepositorio = new UsuarioArchivosRepositorio();
+            RegistrarUsuario registrarUsuario = RegistrarUsuario.getInstance();
             /*
             CifrarTexto cifrado = new CifrarTexto();
             String contraCifrada = cifrado.encodeToBase64URLSafe(registroUsuarioDTO.getLogin().getPassword());

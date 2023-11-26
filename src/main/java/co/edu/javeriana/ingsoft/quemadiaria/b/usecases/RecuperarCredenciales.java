@@ -4,15 +4,26 @@ import co.edu.javeriana.ingsoft.quemadiaria.a.domain.entities.Credenciales;
 import co.edu.javeriana.ingsoft.quemadiaria.a.domain.entities.Usuario;
 import co.edu.javeriana.ingsoft.quemadiaria.a.domain.exceptions.QuemaDiariaException;
 import co.edu.javeriana.ingsoft.quemadiaria.b.usecases.persistence.UsuarioRepositorio;
+import co.edu.javeriana.ingsoft.quemadiaria.d.infraestructure.persistence.files.UsuarioArchivosRepositorio;
 
 public class RecuperarCredenciales {
 
     private UsuarioRepositorio usuarioRepositorio;
 
-    public RecuperarCredenciales(UsuarioRepositorio usuarioRepositorio) {
+    private static RecuperarCredenciales instance;
+
+    private RecuperarCredenciales(UsuarioRepositorio usuarioRepositorio) {
 
         this.usuarioRepositorio = usuarioRepositorio;
     }
+    public static RecuperarCredenciales getInstance() {
+        if (instance == null) {
+            instance = new RecuperarCredenciales(new UsuarioArchivosRepositorio());
+        }
+        return instance;
+    }
+
+
     public Credenciales recuperar(String nombreUsuario, String contrasenna) {
 
         Usuario usuario = usuarioRepositorio.consultarUsuarioPorUserName(nombreUsuario);

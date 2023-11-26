@@ -17,8 +17,8 @@ public class AutenticacionService {
 
 
     public AutenticacionService() {
-        this.realizarLogin = new RealizarLogin(new UsuarioArchivosRepositorio());
-        this.recuperarCredenciales = new RecuperarCredenciales(new UsuarioArchivosRepositorio());
+        this.realizarLogin =  RealizarLogin.getInstance();
+        this.recuperarCredenciales = RecuperarCredenciales.getInstance();
     }
 
     public ResponseDTO<String> autenticarUsuario(LoginDTO loginDTO) {
