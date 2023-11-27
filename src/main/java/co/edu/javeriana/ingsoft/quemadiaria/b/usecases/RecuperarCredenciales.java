@@ -26,6 +26,10 @@ public class RecuperarCredenciales {
 
     public Credenciales recuperar(String nombreUsuario, String contrasenna) {
 
+        if (nombreUsuario == null ||  contrasenna == null) {
+            throw new IllegalArgumentException("Los datos estan vacio");
+        }
+
         Usuario usuario = usuarioRepositorio.consultarUsuarioPorUserName(nombreUsuario);
 
         return usuario.getCredenciales();
