@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Group?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.ColorAdjust?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.javeriana.ingsoft.quemadiaria.f.controllers.ControllerHome">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.javeriana.ingsoft.quemadiaria.f.controllers.ControllerHome">
    <children>
       <Rectangle height="407.0" stroke="TRANSPARENT" strokeType="INSIDE" width="600.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d2c2c" height="42.0" layoutY="40.0" stroke="TRANSPARENT" strokeType="INSIDE" width="600.0" />
@@ -151,7 +145,7 @@
          <children>
             <Button fx:id="setUpProfile" layoutX="4.0" layoutY="53.0" mnemonicParsing="false" onAction="#onClickUpdateProfile" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Actualizar perfil" textFill="WHITE" />
             <Button layoutX="5.0" layoutY="88.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Favoritos" textFill="WHITE" />
-            <Button layoutX="4.0" layoutY="123.0" mnemonicParsing="false" onAction="#onClickNotification" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Notificaciones" textFill="WHITE" />
+            <Button layoutX="4.0" layoutY="123.0" mnemonicParsing="false" onAction="#onClickNotification" onDragEntered="#onMouseEntered" onDragExited="#onMouseExited" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Notificaciones" textFill="WHITE" />
             <Button layoutX="5.0" layoutY="158.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Pagos" textFill="WHITE" />
             <Button fx:id="setSettings" layoutX="5.0" layoutY="193.0" mnemonicParsing="false" onAction="#onClickSettings" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Ajustes" textFill="WHITE" />
             <Button layoutX="5.0" layoutY="229.0" mnemonicParsing="false" onAction="#onClickHelp" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Ayuda" textFill="WHITE" />

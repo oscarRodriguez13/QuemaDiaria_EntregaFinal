@@ -6,7 +6,7 @@
     "correo": "pedrito@javeriana.edu.co",
     "credenciales": {
       "nombreUsuario": "pedrito",
-      "contrasenna": "12345@"
+      "contrasenna": "54321@"
     },
     "fechaCreacion": "Nov 26, 2023, 9:33:14 PM",
     "perfil": {
@@ -19,11 +19,11 @@
     "notificaciones": [
       {
         "descripcion": "Anuncios",
-        "activo": false
+        "activo": true
       },
       {
         "descripcion": "Actualizaciones",
-        "activo": false
+        "activo": true
       },
       {
         "descripcion": "Nuevas rutinas",
