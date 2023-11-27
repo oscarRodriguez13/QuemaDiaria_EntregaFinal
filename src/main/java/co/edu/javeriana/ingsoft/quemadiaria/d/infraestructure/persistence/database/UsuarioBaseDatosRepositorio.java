@@ -8,6 +8,7 @@ import co.edu.javeriana.ingsoft.quemadiaria.c.services.dto.NotificacionDTO;
 import co.edu.javeriana.ingsoft.quemadiaria.c.services.dto.PerfilDTO;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -25,9 +25,7 @@ public class UsuarioArchivosRepositorio implements UsuarioRepositorio {
 
     @Override
     public void guardarUsuario(Usuario usuario) {
-
         try {
-
             List<Usuario> usuarioList = consultarListaUsuarios();
             System.out.println("Registrando usuario: " + usuario);
             usuarioList.add(usuario);
@@ -47,8 +45,6 @@ public class UsuarioArchivosRepositorio implements UsuarioRepositorio {
 
     @Override
     public List<Usuario> consultarListaUsuarios() {
-
-
         Gson gson = new Gson();
         try {
             Path filePath = Path.of("Usuarios.json");
@@ -103,11 +99,7 @@ public class UsuarioArchivosRepositorio implements UsuarioRepositorio {
                 .filter(u -> u.getCredenciales().getNombreUsuario().equals(userName))
                 .findFirst();
 
-        if (usuarioOptional.isPresent()) {
-            return usuarioOptional.get();
-        } else {
-            return null;
-        }
+        return usuarioOptional.orElse(null);
     }
 
     @Override

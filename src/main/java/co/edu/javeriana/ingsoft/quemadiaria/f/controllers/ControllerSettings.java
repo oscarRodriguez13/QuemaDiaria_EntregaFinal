@@ -32,6 +32,8 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ControllerSettings implements Initializable {
+    public Text textObjetivo;
+    public Text textFecha;
     private MenuLogin mainApp;
     private Command helpCommand;
     private Command homeCommand;
@@ -47,8 +49,6 @@ public class ControllerSettings implements Initializable {
     private Text textUser;
     @FXML
     private Text textMail;
-    @FXML
-    private Text textObjective;
     @FXML
     private ImageView icon1;
     @FXML
@@ -83,7 +83,8 @@ public class ControllerSettings implements Initializable {
             profilePicture.setImage(image);
             textUser.setText(loginDTO.getUsername());
             textMail.setText(usuarioActual.getCorreo());
-            textObjective.setText(usuarioActual.getPerfil().getObjetivo());
+            textObjetivo.setText(usuarioActual.getPerfil().getObjetivo());
+            textFecha.setText(usuarioActual.getFechaCreacion().toString());
             setUpAccount.setTranslateX(171);
             cuenta1.setVisible(true);
             cuenta2.setVisible(false);

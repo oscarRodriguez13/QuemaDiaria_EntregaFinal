@@ -1,6 +1,6 @@
 [
   {
-    "numeroDocumento": "12345",
+    "numeroDocumento": "127873",
     "nombre": "pedro",
     "apellido": "perez",
     "correo": "pedrito@javeriana.edu.co",
@@ -8,43 +8,13 @@
       "nombreUsuario": "pedrito",
       "contrasenna": "12345@"
     },
+    "fechaCreacion": "Nov 26, 2023, 9:33:14 PM",
     "perfil": {
-      "altura": 80,
-      "peso": 180,
-      "complexion": "Normal",
-      "objetivo": "Llegar al peso ideal de acuerdo a mi altura",
-      "photoPath": "/co/edu/javeriana/ingsoft/quemadiaria/RecursosVisuales/FotosDePerfil/Foto-perfil5.png"
-    },
-    "notificaciones": [
-      {
-        "descripcion": "Anuncios",
-        "activo": false
-      },
-      {
-        "descripcion": "Actualizaciones",
-        "activo": true
-      },
-      {
-        "descripcion": "Nuevas rutinas",
-        "activo": true
-      }
-    ]
-  },
-  {
-    "numeroDocumento": "102928928",
-    "nombre": "juan",
-    "apellido": "ramirez",
-    "correo": "juan@javeriana.edu.co",
-    "credenciales": {
-      "nombreUsuario": "juanito",
-      "contrasenna": "12345@"
-    },
-    "perfil": {
-      "altura": 80,
-      "peso": 180,
+      "altura": 59,
+      "peso": 167,
       "complexion": "Normal",
       "objetivo": "Adelgazar y tonificar mi cuerpo",
-      "photoPath": "/co/edu/javeriana/ingsoft/quemadiaria/RecursosVisuales/FotosDePerfil/Foto-perfil4.png"
+      "photoPath": "/co/edu/javeriana/ingsoft/quemadiaria/RecursosVisuales/FotosDePerfil/Foto-perfil3.png"
     },
     "notificaciones": [
       {
