@@ -45,6 +45,8 @@ public class UsuarioArchivosRepositorio implements UsuarioRepositorio {
 
     @Override
     public List<Usuario> consultarListaUsuarios() {
+
+
         Gson gson = new Gson();
         try {
             Path filePath = Path.of("Usuarios.json");
