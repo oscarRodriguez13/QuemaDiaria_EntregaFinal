@@ -78,6 +78,7 @@ public class ControllerNotification implements Initializable {
         this.logOutCommand = new LogOutCommand(mainApp);
         this.notificationCommand = new NotificationCommand(mainApp);
         this.homeCommand = new HomeCommand(mainApp);
+        this.helpCommand = new HelpCommand(mainApp);
         this.loginDTO = loginDTO;
 
         initialize(null, null);
@@ -88,8 +89,8 @@ public class ControllerNotification implements Initializable {
         if (loginDTO != null) {
             ConsultaFacade consultaUsuariosFacade = new ConsultaUsuariosFacade();
             Usuario usuarioActual = consultaUsuariosFacade.consultarUsuario(loginDTO);
-            for(Notificacion notificacion : usuarioActual.getNotificaciones()){
-                if(notificacion.getDescripcion().equals(checkAnuncios.getText())){
+            for(Notificacion notificacion : usuarioActual.getNotificaciones()) {
+                if (notificacion.getDescripcion().equals(checkAnuncios.getText())) {
                     checkAnuncios.setSelected(notificacion.isActivo());
                 } else if (notificacion.getDescripcion().equals(checkActualizaciones.getText())) {
                     checkActualizaciones.setSelected(notificacion.isActivo());
@@ -99,8 +100,6 @@ public class ControllerNotification implements Initializable {
             }
             String path = getClass().getResource(usuarioActual.getPerfil().getPhotoPath()).toExternalForm();
             Image image = new Image(path);
-            icon1.setImage(image);
-            icon2.setImage(image);
             menuPhoto.setImage(image);
             setUpAccount.setTranslateX(171);
             cuenta1.setVisible(true);
@@ -230,5 +229,8 @@ public class ControllerNotification implements Initializable {
 
     @FXML
     public void onClickSettings() { settingsCommand.execute(loginDTO); }
+
+    @FXML
+    public void onClickHelp() { helpCommand.execute(loginDTO); }
 
 }

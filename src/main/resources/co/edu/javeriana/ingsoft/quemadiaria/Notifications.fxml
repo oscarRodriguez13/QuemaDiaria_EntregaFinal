@@ -139,14 +139,13 @@
                <children>
                   <Button fx:id="setUpProfile" layoutX="4.0" layoutY="53.0" mnemonicParsing="false" onAction="#onClickUpdateProfile" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Actualizar perfil" textFill="WHITE" />
                   <Button layoutX="5.0" layoutY="88.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Favoritos" textFill="WHITE" />
-                  <Button layoutX="4.0" layoutY="123.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Notificaciones" textFill="WHITE" />
-                  <Button layoutX="5.0" layoutY="158.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Pagos" textFill="WHITE" />
-                  <Button layoutX="5.0" layoutY="193.0" mnemonicParsing="false" onAction="#onClickSettings" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Ajustes" textFill="WHITE" />
-                  <Button layoutX="5.0" layoutY="229.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Ayuda" textFill="#fe7b09">
+                  <Button layoutX="4.0" layoutY="123.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Notificaciones" textFill="#fe7b09">
                      <font>
                         <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
+                     </font></Button>
+                  <Button layoutX="5.0" layoutY="158.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Pagos" textFill="WHITE" />
+                  <Button layoutX="5.0" layoutY="193.0" mnemonicParsing="false" onAction="#onClickSettings" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Ajustes" textFill="WHITE" />
+                  <Button layoutX="5.0" layoutY="229.0" mnemonicParsing="false" onAction="#onClickHelp" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Ayuda" textFill="WHITE" />
                   <Button fx:id="logOut" layoutX="5.0" layoutY="279.0" mnemonicParsing="false" onAction="#onClickLogOut" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Cerrar sesión" textFill="WHITE" />
                   <ImageView fx:id="menuPhoto" fitHeight="42.0" fitWidth="40.0" layoutX="14.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                      <image>
