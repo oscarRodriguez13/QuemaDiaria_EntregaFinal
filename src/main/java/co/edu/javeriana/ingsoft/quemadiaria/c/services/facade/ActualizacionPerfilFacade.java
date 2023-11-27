@@ -6,4 +6,6 @@ import co.edu.javeriana.ingsoft.quemadiaria.c.services.dto.PerfilDTO;
 public interface ActualizacionPerfilFacade {
     void updatePerfil(PerfilDTO perfilDTO, Usuario usuarioActual);
 
+    void changeProfilePhoto(PerfilDTO perfilDTO, Usuario usuarioActual);
+
 }

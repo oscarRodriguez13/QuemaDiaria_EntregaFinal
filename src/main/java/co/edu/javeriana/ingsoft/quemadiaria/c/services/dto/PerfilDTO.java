@@ -21,7 +21,4 @@ public class PerfilDTO {
         this.photoPath = photoPath;
     }
 
-    public PerfilDTO(String photoPath) {
-        this.photoPath = photoPath;
-    }
 }

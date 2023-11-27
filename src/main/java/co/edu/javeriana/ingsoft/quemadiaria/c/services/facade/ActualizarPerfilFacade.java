@@ -13,4 +13,9 @@ public class ActualizarPerfilFacade implements ActualizacionPerfilFacade{
     public void updatePerfil(PerfilDTO perfilDTO, Usuario usuarioActual) {
         actualizacionPerfilService.updateProfile(perfilDTO, usuarioActual);
     }
+
+    @Override
+    public void changeProfilePhoto(PerfilDTO perfilDTO, Usuario usuarioActual) {
+        actualizacionPerfilService.changeProfilePhoto(perfilDTO, usuarioActual);
+    }
 }

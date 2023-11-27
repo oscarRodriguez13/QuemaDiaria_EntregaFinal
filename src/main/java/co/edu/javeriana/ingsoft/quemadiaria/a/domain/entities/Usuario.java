@@ -19,7 +19,7 @@ public class Usuario implements Serializable {
         this.numeroDocumento = numeroDocumento;
         this.correo = correo;
         this.credenciales = credenciales;
-        this.perfil = new Perfil(0, 0, "", "", "");
+        this.perfil = new Perfil(0, 0, "", "", "/co/edu/javeriana/ingsoft/quemadiaria/RecursosVisuales/FotosDePerfil/Foto-perfil0.png");
         this.notificaciones = new ArrayList<>();
         this.notificaciones.add(new Notificacion("Anuncios", false));
         this.notificaciones.add(new Notificacion("Actualizaciones", false));

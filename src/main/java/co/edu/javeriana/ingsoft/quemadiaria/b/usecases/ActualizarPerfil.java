@@ -15,4 +15,9 @@ public class ActualizarPerfil {
         usuarioRepositorio.actualizarPerfil(perfilDTO, usuarioActual);
         System.out.println("Perfil del usuario actualizado correctamente.");
     }
+
+    public void changeProfilePhoto(PerfilDTO perfilDTO, Usuario usuarioActual) {
+        usuarioRepositorio.changeProfilePhoto(perfilDTO, usuarioActual);
+        System.out.println("Foto del usuario actualizado correctamente.");
+    }
 }

@@ -221,4 +221,37 @@ public class UsuarioArchivosRepositorio implements UsuarioRepositorio {
         }
     }
 
+    @Override
+    public void changeProfilePhoto(PerfilDTO perfilDTO, Usuario usuarioActual) {
+        try {
+            List<Usuario> usuarioList = consultarListaUsuarios();
+            Optional<Usuario> usuarioExistente = usuarioList.stream()
+                    .filter(u -> u.getCredenciales().getNombreUsuario().equals(usuarioActual.getCredenciales().getNombreUsuario()))
+                    .findFirst();
+
+            usuarioExistente.ifPresentOrElse(
+                    u -> {
+                        // Actualizar la foto de perfil
+                        u.getPerfil().setPhotoPath(perfilDTO.getPhotoPath());
+                        System.out.println("Foto de perfil actualizada correctamente");
+
+                        // Guardar los cambios en el archivo JSON
+                        try {
+                            FileWriter fileWriter = new FileWriter("Usuarios.json");
+                            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                            gson.toJson(usuarioList, fileWriter);
+                            fileWriter.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                            throw new RuntimeException("Error al guardar cambios en el archivo", e);
+                        }
+                    },
+                    () -> System.out.println("Usuario no encontrado. No se pudo actualizar la foto de perfil.")
+            );
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Error al gestionar el archivo", e);
+        }
+    }
+
 }

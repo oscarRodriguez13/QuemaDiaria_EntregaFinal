@@ -76,12 +76,6 @@ public class ControllerRegister2 {
         System.out.println(responseDTO.toString());
 
         if (responseDTO.getCodigo().equals(ResponseDTO.OK)){
-            if (loginDTO != null) {
-                ConsultaFacade consultaUsuariosFacade = new ConsultaUsuariosFacade();
-                Usuario usuarioActual = consultaUsuariosFacade.consultarUsuario(loginDTO);
-                String photoPath = "/co/edu/javeriana/ingsoft/quemadiaria/RecursosVisuales/FotosDePerfil/Foto-perfil0.png";
-                PerfilDTO perfilDTO = new PerfilDTO(photoPath);
-            }
             System.out.println("Registro exitoso");
             return true;
         }

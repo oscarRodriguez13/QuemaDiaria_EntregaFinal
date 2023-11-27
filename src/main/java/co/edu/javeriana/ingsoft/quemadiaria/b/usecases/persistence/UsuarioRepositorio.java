@@ -24,4 +24,6 @@ public interface UsuarioRepositorio {
     boolean eliminarUsuarioPorNombreUsuario(String nombreUsuario);
 
     void cambiarEstadoNotificaciones(NotificacionDTO notificacionDTO, Usuario usuario);
+
+    void changeProfilePhoto(PerfilDTO perfilDTO, Usuario usuarioActual);
 }

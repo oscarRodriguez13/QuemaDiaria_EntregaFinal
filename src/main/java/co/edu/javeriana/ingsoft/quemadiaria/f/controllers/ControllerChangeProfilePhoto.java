@@ -25,10 +25,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
-import javafx.stage.FileChooser;
 import javafx.util.Duration;
 
-import java.io.File;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -61,6 +59,7 @@ public class ControllerChangeProfilePhoto implements Initializable {
     private LoginDTO loginDTO;
 
     public void setMainApp(MenuLogin mainApp, LoginDTO loginDTO) {
+        this.mainApp = mainApp;
         this.homeCommand = new HomeCommand(mainApp);
         this.helpCommand = new HelpCommand(mainApp);
         this.settingsCommand = new SettingsCommand(mainApp);
@@ -140,12 +139,13 @@ public class ControllerChangeProfilePhoto implements Initializable {
         String photoPath = photoRute;
 
         ConsultaFacade consultaUsuariosFacade = new ConsultaUsuariosFacade();
-        Usuario usuarioEnSesion = consultaUsuariosFacade.consultarUsuario(loginDTO);
+        Usuario usuario = consultaUsuariosFacade.consultarUsuario(loginDTO);
 
-        if (usuarioEnSesion != null) {
-            PerfilDTO perfilDTO = new PerfilDTO(photoPath);
+        if (usuario != null) {
+            PerfilDTO perfilDTO = new PerfilDTO(usuario.getPerfil().getAltura(), usuario.getPerfil().getPeso(), usuario.getPerfil().getComplexion(),
+                    usuario.getPerfil().getObjetivo(), photoPath);
             ActualizacionPerfilFacade actualizacionPerfilFacade = new ActualizarPerfilFacade();
-            actualizacionPerfilFacade.updatePerfil(perfilDTO, usuarioEnSesion);
+            actualizacionPerfilFacade.changeProfilePhoto(perfilDTO, usuario);
 
             // Muestra una alerta de confirmación
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

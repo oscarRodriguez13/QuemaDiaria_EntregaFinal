@@ -10,9 +10,10 @@
     },
     "perfil": {
       "altura": 80,
-      "peso": 190,
+      "peso": 180,
       "complexion": "Normal",
-      "objetivo": "Ganar masa muscular"
+      "objetivo": "Llegar al peso ideal de acuerdo a mi altura",
+      "photoPath": "/co/edu/javeriana/ingsoft/quemadiaria/RecursosVisuales/FotosDePerfil/Foto-perfil5.png"
     },
     "notificaciones": [
       {
@@ -22,6 +23,37 @@
       {
         "descripcion": "Actualizaciones",
         "activo": true
+      },
+      {
+        "descripcion": "Nuevas rutinas",
+        "activo": true
+      }
+    ]
+  },
+  {
+    "numeroDocumento": "102928928",
+    "nombre": "juan",
+    "apellido": "ramirez",
+    "correo": "juan@javeriana.edu.co",
+    "credenciales": {
+      "nombreUsuario": "juanito",
+      "contrasenna": "12345@"
+    },
+    "perfil": {
+      "altura": 80,
+      "peso": 180,
+      "complexion": "Normal",
+      "objetivo": "Adelgazar y tonificar mi cuerpo",
+      "photoPath": "/co/edu/javeriana/ingsoft/quemadiaria/RecursosVisuales/FotosDePerfil/Foto-perfil4.png"
+    },
+    "notificaciones": [
+      {
+        "descripcion": "Anuncios",
+        "activo": false
+      },
+      {
+        "descripcion": "Actualizaciones",
+        "activo": false
       },
       {
         "descripcion": "Nuevas rutinas",

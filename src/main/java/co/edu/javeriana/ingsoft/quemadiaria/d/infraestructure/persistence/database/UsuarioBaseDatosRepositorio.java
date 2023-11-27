@@ -140,4 +140,9 @@ public class UsuarioBaseDatosRepositorio implements UsuarioRepositorio {
     public void cambiarEstadoNotificaciones(NotificacionDTO notificacionDTO, Usuario usuario) {
 
     }
+
+    @Override
+    public void changeProfilePhoto(PerfilDTO perfilDTO, Usuario usuarioActual) {
+
+    }
 }

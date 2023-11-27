@@ -15,4 +15,11 @@ public class ActualizacionPerfilService {
         actualizarPerfil.updatePerfil(perfilDTO, usuarioActual);
     }
 
+    public void changeProfilePhoto(PerfilDTO perfilDTO, Usuario usuarioActual){
+        if (perfilDTO == null || usuarioActual == null) {
+            throw new IllegalArgumentException("Datos invalidos");
+        }
+        actualizarPerfil.changeProfilePhoto(perfilDTO, usuarioActual);
+    }
+
 }
