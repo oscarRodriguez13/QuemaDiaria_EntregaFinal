@@ -2,6 +2,11 @@ package co.edu.javeriana.ingsoft.quemadiaria.b.usecases;
 
 import co.edu.javeriana.ingsoft.quemadiaria.b.usecases.persistence.UsuarioRepositorio;
 import co.edu.javeriana.ingsoft.quemadiaria.d.infraestructure.persistence.files.UsuarioArchivosRepositorio;
+import co.edu.javeriana.ingsoft.quemadiaria.f.controllers.ControllerRecoverPassword;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+
+import java.io.IOException;
 
 public class ChangePassword {
     UsuarioRepositorio usuarioRepositorio;
@@ -18,7 +23,7 @@ public class ChangePassword {
         return instance;
     }
 
-    public void updateUserPassword(String userName, String newPassword){
+    public void updateUserPassword(String userName, String newPassword) throws IOException {
         usuarioRepositorio.actualizarContrasennaUsuario(userName, newPassword);
     }
 

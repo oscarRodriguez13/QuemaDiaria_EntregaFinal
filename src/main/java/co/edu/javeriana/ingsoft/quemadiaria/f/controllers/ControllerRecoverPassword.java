@@ -2,12 +2,14 @@ package co.edu.javeriana.ingsoft.quemadiaria.f.controllers;
 
 import co.edu.javeriana.ingsoft.quemadiaria.MenuLogin;
 import co.edu.javeriana.ingsoft.quemadiaria.a.domain.entities.Usuario;
+import co.edu.javeriana.ingsoft.quemadiaria.b.usecases.PasswordChangeSubject;
 import co.edu.javeriana.ingsoft.quemadiaria.b.usecases.persistence.UsuarioRepositorio;
 import co.edu.javeriana.ingsoft.quemadiaria.c.services.facade.ChangePasswordFacade;
 import co.edu.javeriana.ingsoft.quemadiaria.c.services.facade.ConsultaFacade;
 import co.edu.javeriana.ingsoft.quemadiaria.c.services.facade.ConsultaUsuariosFacade;
 import co.edu.javeriana.ingsoft.quemadiaria.c.services.facade.UpdatePasswordFacade;
 import co.edu.javeriana.ingsoft.quemadiaria.d.infraestructure.persistence.files.UsuarioArchivosRepositorio;
+import co.edu.javeriana.ingsoft.quemadiaria.e.interfaces.PasswordChangeObserver;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -43,6 +45,8 @@ public class ControllerRecoverPassword implements Initializable {
     private Button savePassword;
     public Text differentPasswords;
     public Text invalidPassword;
+
+    private PasswordChangeSubject passwordChangeSubject = new PasswordChangeSubject();
 
 
     public void setMainApp(MenuLogin mainApp) {this.mainApp = mainApp;}
@@ -110,13 +114,17 @@ public class ControllerRecoverPassword implements Initializable {
                 if (validarContrasenna(newPassword)) {
                     invalidPassword.setVisible(false);
                     UpdatePasswordFacade updatePasswordFacade = new ChangePasswordFacade();
+                    passwordChangeSubject.addObserver((PasswordChangeObserver) updatePasswordFacade);
                     updatePasswordFacade.updateUserPassword(userName, newPassword);
+                    passwordChangeSubject.notifyObservers();
                     showPasswordChangedMessage();
+                    //passwordChangeSubject.notifyObservers();
                     try {
                         this.mainApp.showLoginScreen();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+
                 } else {
                     invalidPassword.setVisible(true);
                 }
@@ -157,5 +165,7 @@ public class ControllerRecoverPassword implements Initializable {
         mensaje.setContentText("Usuario no encontrado");
         mensaje.showAndWait();
     }
+
+
 }
 
