@@ -133,7 +133,7 @@
             <Image url="@RecursosVisuales/FotosDePerfil/Foto-perfil0.png" />
          </image>
       </ImageView>
-      <Text fill="#288aef" layoutX="219.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Eliminar cuenta">
+      <Text fill="#288aef" layoutX="219.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Eliminar cuenta">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -146,14 +146,16 @@
       </Text>
       <Text fill="WHITE" layoutX="193.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Has iniciado sesión con" />
       <Text fx:id="textMail" fill="WHITE" layoutX="320.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;correo&gt;" wrappingWidth="214.89129638671875" />
-      <Text fill="#288aef" layoutX="218.0" layoutY="297.0" onMouseClicked="#onClickUpdateProfile" strokeType="OUTSIDE" strokeWidth="0.0" text="Actualizar perfil">
+      <Text fill="#288aef" layoutX="218.0" layoutY="315.0" onMouseClicked="#onClickUpdateProfile" strokeType="OUTSIDE" strokeWidth="0.0" text="Actualizar perfil">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="217.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tu objetivo para esta etapa es:" />
-      <Text fx:id="textObjective" fill="WHITE" layoutX="385.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;objetivo&gt;" />
-      <AnchorPane fx:id="setUpAccount" layoutX="427.0" layoutY="82.0" prefHeight="323.0" prefWidth="171.0" style="-fx-background-color: #2b2a2a;">
+      <Text fill="WHITE" layoutX="217.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tu objetivo para esta etapa es:" />
+      <Text fx:id="textFecha" fill="WHITE" layoutX="385.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;fecha&gt;" />
+      <Text fill="WHITE" layoutX="216.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Te uniste el" />
+      <Text fx:id="textObjective" fill="WHITE" layoutX="290.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;objetivo&gt;" />
+      <AnchorPane fx:id="setUpAccount" layoutX="428.0" layoutY="82.0" prefHeight="323.0" prefWidth="171.0" style="-fx-background-color: #2b2a2a;">
          <children>
             <Button fx:id="setUpProfile" layoutX="4.0" layoutY="53.0" mnemonicParsing="false" onAction="#onClickUpdateProfile" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Actualizar perfil" textFill="WHITE" />
             <Button layoutX="5.0" layoutY="88.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Favoritos" textFill="WHITE" />
