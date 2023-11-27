@@ -113,9 +113,10 @@ public class ControllerRecoverPassword implements Initializable {
             if (usuario != null) {
                 if (validarContrasenna(newPassword)) {
                     invalidPassword.setVisible(false);
-                    UpdatePasswordFacade updatePasswordFacade = new ChangePasswordFacade();
+                    UpdatePasswordFacade updatePasswordFacade = new ChangePasswordFacade(userName, newPassword);
+
                     passwordChangeSubject.addObserver((PasswordChangeObserver) updatePasswordFacade);
-                    updatePasswordFacade.updateUserPassword(userName, newPassword);
+
                     passwordChangeSubject.notifyObservers();
                     showPasswordChangedMessage();
                     //passwordChangeSubject.notifyObservers();

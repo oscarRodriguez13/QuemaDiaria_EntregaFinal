@@ -11,14 +11,20 @@ public class ChangePasswordFacade implements UpdatePasswordFacade, PasswordChang
     private String newPassword;
 
 
-    @Override
-    public void updateUserPassword(String userName, String newPassword) {
+    public ChangePasswordFacade(String userName, String newPassword ) {
         this.userName = userName;
         this.newPassword = newPassword;
     }
 
+
+
     @Override
     public void onPasswordChanged() {
         changePasswordService.updateUserPassword(userName, newPassword);
+    }
+
+    @Override
+    public void updateUserPassword(String userName, String newPassword) {
+        //metodo:
     }
 }
