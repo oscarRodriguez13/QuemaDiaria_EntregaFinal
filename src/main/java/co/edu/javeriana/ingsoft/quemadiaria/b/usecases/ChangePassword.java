@@ -24,6 +24,9 @@ public class ChangePassword {
     }
 
     public void updateUserPassword(String userName, String newPassword) throws IOException {
+        if (userName == null ||  newPassword == null) {
+            throw new IllegalArgumentException("Los datos estan vacio");
+        }
         usuarioRepositorio.actualizarContrasennaUsuario(userName, newPassword);
     }
 

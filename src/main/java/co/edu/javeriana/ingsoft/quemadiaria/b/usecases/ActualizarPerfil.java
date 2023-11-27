@@ -12,11 +12,17 @@ public class ActualizarPerfil {
     }
 
     public void updatePerfil(PerfilDTO perfilDTO, Usuario usuarioActual) {
+        if (perfilDTO == null ||  usuarioActual == null) {
+            throw new IllegalArgumentException("Los datos estan vacio");
+        }
         usuarioRepositorio.actualizarPerfil(perfilDTO, usuarioActual);
         System.out.println("Perfil del usuario actualizado correctamente.");
     }
 
     public void changeProfilePhoto(PerfilDTO perfilDTO, Usuario usuarioActual) {
+        if (perfilDTO == null ||  usuarioActual == null) {
+            throw new IllegalArgumentException("Los datos estan vacio");
+        }
         usuarioRepositorio.changeProfilePhoto(perfilDTO, usuarioActual);
         System.out.println("Foto del usuario actualizado correctamente.");
     }

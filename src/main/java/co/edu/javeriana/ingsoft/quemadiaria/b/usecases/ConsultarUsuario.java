@@ -22,6 +22,11 @@ public class ConsultarUsuario {
     }
 
     public Usuario consultarUsuario(LoginDTO loginDTO) {
+
+        if (loginDTO == null) {
+            throw new IllegalArgumentException("loginDTO esta vacio");
+        }
+
         // Consultar el usuario por nombre de usuario
         Usuario usuario = usuarioRepositorio.consultarUsuarioPorUserName(loginDTO.getUsername());
 
@@ -45,6 +50,7 @@ public class ConsultarUsuario {
         // Verificar si el usuario existe
         if (usuario == null) {
             throw new QuemaDiariaException(QuemaDiariaException.ERROR_USUARIO_NO_ENCONTRADO, "Usuario no encontrado: " + userName);
+
         }
 
         // Devolver el usuario consultado

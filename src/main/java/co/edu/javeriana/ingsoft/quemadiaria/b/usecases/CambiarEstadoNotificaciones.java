@@ -21,6 +21,9 @@ public class CambiarEstadoNotificaciones {
     }
 
     public void cambiarEstadoNotificaciones(NotificacionDTO notificacionDTO, Usuario usuario){
+        if (notificacionDTO == null ||  usuario == null) {
+            throw new IllegalArgumentException("Los datos estan vacio");
+        }
         usuarioRepositorio.cambiarEstadoNotificaciones(notificacionDTO, usuario);
     }
 
