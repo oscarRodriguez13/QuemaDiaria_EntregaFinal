@@ -24,6 +24,10 @@ public class EliminarUsuario {
 
     public boolean eliminar(String nombreUsuario){
 
+        if (nombreUsuario == null) {
+            throw new IllegalArgumentException("nombreUsuario esta vacio");
+        }
+
         boolean eliminado = usuarioRepositorio.eliminarUsuarioPorNombreUsuario(nombreUsuario);
 
         return eliminado;

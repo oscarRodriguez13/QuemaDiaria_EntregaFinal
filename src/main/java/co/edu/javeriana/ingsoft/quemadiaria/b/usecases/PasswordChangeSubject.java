@@ -9,6 +9,9 @@ public  class PasswordChangeSubject {
     private List<PasswordChangeObserver> observers = new ArrayList<>();
 
     public void addObserver(PasswordChangeObserver observer) {
+        if (observer == null ) {
+            throw new IllegalArgumentException("El observer esta vacio");
+        }
         observers.add(observer);
     }
 

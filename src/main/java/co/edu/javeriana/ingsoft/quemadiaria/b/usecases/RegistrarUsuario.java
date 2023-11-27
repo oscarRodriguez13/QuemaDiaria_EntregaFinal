@@ -24,6 +24,9 @@ public class RegistrarUsuario {
 
 
     public void registrarUsuario(Usuario usuario) {
+        if (usuario == null) {
+            throw new IllegalArgumentException("El usuario esta vacio");
+        }
         usuarioRepositorio.guardarUsuario(usuario);
     }
 }
