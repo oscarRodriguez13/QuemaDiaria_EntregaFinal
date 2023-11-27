@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.javeriana.ingsoft.quemadiaria.f.controllers.ControllerNotification">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.javeriana.ingsoft.quemadiaria.f.controllers.ControllerNotification">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="600.0">
          <children>
@@ -69,9 +69,9 @@
             </Button>
             <Group fx:id="cuenta1" layoutX="552.0" layoutY="45.0" onMouseClicked="#onclickCuenta1">
                <children>
-                  <ImageView fitHeight="25.0" fitWidth="65.0" layoutX="3.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="icon2" fitHeight="25.0" fitWidth="65.0" layoutX="3.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@RecursosVisuales/Foto-perfil.png" />
+                        <Image url="@RecursosVisuales/FotosDePerfil/Foto-perfil0.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="10.0" fitWidth="9.0" layoutX="33.32952880859375" layoutY="13.67049789428711" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
@@ -83,9 +83,9 @@
             </Group>
             <Group fx:id="cuenta2" layoutX="551.0" layoutY="45.0" onMouseClicked="#onclickCuenta2">
                <children>
-                  <ImageView fitHeight="25.0" fitWidth="65.0" layoutX="3.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="icon1" fitHeight="25.0" fitWidth="65.0" layoutX="3.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@RecursosVisuales/Foto-perfil.png" />
+                        <Image url="@RecursosVisuales/FotosDePerfil/Foto-perfil0.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="10.0" fitWidth="9.0" layoutX="33.32952880859375" layoutY="13.67049789428711" pickOnBounds="true" preserveRatio="true" rotate="90.0">
@@ -130,7 +130,12 @@
                   <CheckBox id="CheckBoxNewRoutine" fx:id="checkNuevasRutinas" indeterminate="false" layoutX="71.0" layoutY="125.0" mnemonicParsing="false" onAction="#OnCheckNewRoutine" prefHeight="25.0" prefWidth="171.0" style="-fx-background-color: #262424;" text="Nuevas rutinas" textFill="#fcf9f9" />
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="setUpAccount" layoutX="428.0" layoutY="82.0" prefHeight="323.0" prefWidth="171.0" style="-fx-background-color: #2b2a2a;" visible="false">
+            <Button id="CancelNotifications" layoutX="217.0" layoutY="345.0" mnemonicParsing="false" onAction="#onClickCancelNotifications" style="-fx-background-color: #262424;" text="Cancelar" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <AnchorPane fx:id="setUpAccount" layoutX="428.0" layoutY="82.0" prefHeight="323.0" prefWidth="171.0" style="-fx-background-color: #2b2a2a;">
                <children>
                   <Button fx:id="setUpProfile" layoutX="4.0" layoutY="53.0" mnemonicParsing="false" onAction="#onClickUpdateProfile" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Actualizar perfil" textFill="WHITE" />
                   <Button layoutX="5.0" layoutY="88.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Favoritos" textFill="WHITE" />
@@ -143,9 +148,9 @@
                      </font>
                   </Button>
                   <Button fx:id="logOut" layoutX="5.0" layoutY="279.0" mnemonicParsing="false" onAction="#onClickLogOut" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Cerrar sesión" textFill="WHITE" />
-                  <ImageView fitHeight="42.0" fitWidth="40.0" layoutX="14.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="menuPhoto" fitHeight="42.0" fitWidth="40.0" layoutX="14.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@RecursosVisuales/Foto-perfil.png" />
+                        <Image url="@RecursosVisuales/FotosDePerfil/Foto-perfil0.png" />
                      </image>
                   </ImageView>
                   <Text fill="WHITE" layoutX="64.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario">
@@ -157,11 +162,6 @@
                   <Line endX="103.06976318359375" endY="7.62939453125E-6" layoutX="68.0" layoutY="270.0" startX="-66.66665649414062" startY="7.62939453125E-6" stroke="WHITE" strokeWidth="2.0" />
                </children>
             </AnchorPane>
-            <Button id="CancelNotifications" layoutX="217.0" layoutY="345.0" mnemonicParsing="false" onAction="#onClickCancelNotifications" style="-fx-background-color: #262424;" text="Cancelar" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
          </children>
       </AnchorPane>
    </children>

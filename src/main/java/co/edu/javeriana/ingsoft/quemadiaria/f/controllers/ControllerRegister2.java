@@ -1,7 +1,9 @@
 package co.edu.javeriana.ingsoft.quemadiaria.f.controllers;
 
 import co.edu.javeriana.ingsoft.quemadiaria.MenuLogin;
+import co.edu.javeriana.ingsoft.quemadiaria.a.domain.entities.Usuario;
 import co.edu.javeriana.ingsoft.quemadiaria.c.services.dto.LoginDTO;
+import co.edu.javeriana.ingsoft.quemadiaria.c.services.dto.PerfilDTO;
 import co.edu.javeriana.ingsoft.quemadiaria.c.services.dto.UsuarioDTO;
 import co.edu.javeriana.ingsoft.quemadiaria.c.services.dto.ResponseDTO;
 import co.edu.javeriana.ingsoft.quemadiaria.c.services.facade.*;
@@ -11,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
@@ -21,8 +24,8 @@ public class ControllerRegister2 {
     public PasswordField passwordBox;
     public Text txtIniciarSesion;
     private MenuLogin mainApp;
-
     private UsuarioDTO usuarioDTO;
+    private LoginDTO loginDTO;
 
     public void setMainApp(MenuLogin mainApp, UsuarioDTO usuarioDTO) {
         this.usuarioDTO = usuarioDTO;
@@ -73,6 +76,12 @@ public class ControllerRegister2 {
         System.out.println(responseDTO.toString());
 
         if (responseDTO.getCodigo().equals(ResponseDTO.OK)){
+            if (loginDTO != null) {
+                ConsultaFacade consultaUsuariosFacade = new ConsultaUsuariosFacade();
+                Usuario usuarioActual = consultaUsuariosFacade.consultarUsuario(loginDTO);
+                String photoPath = "/co/edu/javeriana/ingsoft/quemadiaria/RecursosVisuales/FotosDePerfil/Foto-perfil0.png";
+                PerfilDTO perfilDTO = new PerfilDTO(photoPath);
+            }
             System.out.println("Registro exitoso");
             return true;
         }

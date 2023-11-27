@@ -51,6 +51,12 @@ public class ControllerUpdateProfile implements Initializable {
     @FXML
     private ImageView profilePicture;
     @FXML
+    private ImageView icon1;
+    @FXML
+    private ImageView icon2;
+    @FXML
+    private ImageView menuPhoto;
+    @FXML
     private AnchorPane anchorPaneProfile;
     @FXML
     private Group cuenta1;
@@ -93,6 +99,12 @@ public class ControllerUpdateProfile implements Initializable {
             ConsultaFacade consultaUsuariosFacade = new ConsultaUsuariosFacade();
             Usuario usuarioActual = consultaUsuariosFacade.consultarUsuario(loginDTO);
 
+            String path = getClass().getResource(usuarioActual.getPerfil().getPhotoPath()).toExternalForm();
+            Image image = new Image(path);
+            icon1.setImage(image);
+            icon2.setImage(image);
+            profilePicture.setImage(image);
+            menuPhoto.setImage(image);
             textUser.setText(loginDTO.getUsername());
             textNombreNEW.setText(usuarioActual.getNombre());
             textApellidoNEW.setText(usuarioActual.getApellido());
@@ -121,30 +133,6 @@ public class ControllerUpdateProfile implements Initializable {
     public void onMouseExitedImageView(MouseEvent event) {
         this.anchorPaneProfile.setVisible(false);
     }
-    @FXML
-    public void changeProfilePhoto(MouseEvent event) throws MalformedURLException {
-        // Realizar la acción de cambio de imagen aquí
-
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.getExtensionFilters().add(
-                new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg", "*.gif")
-        );
-
-        // Mostrar el cuadro de diálogo para seleccionar una imagen
-        File selectedFile = fileChooser.showOpenDialog(new Stage());
-
-        if (selectedFile != null) {
-            // Cargar la imagen seleccionada
-            Image image = new Image(selectedFile.toURI().toURL().toExternalForm());
-
-            // Asignar la imagen al ImageView
-            profilePicture.setImage(image);
-
-            // Establecer el tamaño fijo de 120x120
-            profilePicture.setFitWidth(120);
-            profilePicture.setFitHeight(120);
-        }
-    }
 
     @FXML
     public void onClickSave(ActionEvent event) throws IOException {
@@ -153,10 +141,10 @@ public class ControllerUpdateProfile implements Initializable {
         String altura = textAltura.getText();
         String complexion = textComplexion.getValue();
         String objetivo = textObjetivo.getValue();
-        String photoPath = "";
 
         ConsultaFacade consultaUsuariosFacade = new ConsultaUsuariosFacade();
         Usuario usuarioEnSesion = consultaUsuariosFacade.consultarUsuario(loginDTO);
+        String photoPath = usuarioEnSesion.getPerfil().getPhotoPath();
 
         // Actualizar los datos del usuario con los nuevos valores
         if (usuarioEnSesion != null) {

@@ -19,6 +19,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
@@ -49,14 +51,18 @@ public class ControllerRemoveAccount implements Initializable {
     private Text textMail;
     @FXML
     private Text txtMensajeError;
-
     @FXML
     private TextField txtCorreo;
     @FXML
     private TextField txtContrasenna;
     @FXML
     private Button buttonEliminar;
-
+    @FXML
+    private ImageView icon1;
+    @FXML
+    private ImageView icon2;
+    @FXML
+    private ImageView menuPhoto;
     private LoginDTO loginDTO;
 
 
@@ -77,6 +83,12 @@ public class ControllerRemoveAccount implements Initializable {
         if (loginDTO != null) {
             ConsultaUsuariosFacade consultaUsuariosFacade = new ConsultaUsuariosFacade();
             Usuario usuarioActual = consultaUsuariosFacade.consultarUsuario(loginDTO);
+
+            String path = getClass().getResource(usuarioActual.getPerfil().getPhotoPath()).toExternalForm();
+            Image image = new Image(path);
+            icon1.setImage(image);
+            icon2.setImage(image);
+            menuPhoto.setImage(image);
             textUser.setText(loginDTO.getUsername());
             textMail.setText(usuarioActual.getCorreo());
             setUpAccount.setTranslateX(171);

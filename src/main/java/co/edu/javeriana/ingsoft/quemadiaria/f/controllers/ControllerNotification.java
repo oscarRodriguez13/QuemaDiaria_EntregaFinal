@@ -23,6 +23,8 @@ import javafx.scene.Group;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
@@ -32,19 +34,23 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ControllerNotification implements Initializable {
-    public CheckBox checkAnuncios;
-    public CheckBox checkActualizaciones;
-    public CheckBox checkNuevasRutinas;
-    @FXML
-    private Group cuenta1;
-    @FXML
-    private Group cuenta2;
+    private MenuLogin mainApp;
     private Command homeCommand;
     private Command settingsCommand;
     private Command notificationCommand;
     private Command helpCommand;
     private Command updateProfileCommand;
     private Command logOutCommand;
+    @FXML
+    public CheckBox checkAnuncios;
+    @FXML
+    public CheckBox checkActualizaciones;
+    @FXML
+    public CheckBox checkNuevasRutinas;
+    @FXML
+    private Group cuenta1;
+    @FXML
+    private Group cuenta2;
     @FXML
     private AnchorPane setUpAccount;
     @FXML
@@ -53,7 +59,12 @@ public class ControllerNotification implements Initializable {
     private CheckBox CheckBoxUpdate;
     @FXML
     private CheckBox CheckBoxNewRoutine;
-    private MenuLogin mainApp;
+    @FXML
+    private ImageView icon1;
+    @FXML
+    private ImageView icon2;
+    @FXML
+    private ImageView menuPhoto;
     private boolean originalAnnouncementState;
     private boolean originalUpdateState;
     private boolean originalNewRoutineState;
@@ -86,6 +97,11 @@ public class ControllerNotification implements Initializable {
                     checkNuevasRutinas.setSelected(notificacion.isActivo());
                 }
             }
+            String path = getClass().getResource(usuarioActual.getPerfil().getPhotoPath()).toExternalForm();
+            Image image = new Image(path);
+            icon1.setImage(image);
+            icon2.setImage(image);
+            menuPhoto.setImage(image);
             setUpAccount.setTranslateX(171);
             cuenta1.setVisible(true);
             cuenta2.setVisible(false);

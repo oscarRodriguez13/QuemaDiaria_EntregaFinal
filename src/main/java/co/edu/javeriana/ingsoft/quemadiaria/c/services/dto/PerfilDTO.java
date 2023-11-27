@@ -20,4 +20,8 @@ public class PerfilDTO {
         this.objetivo = objetivo;
         this.photoPath = photoPath;
     }
+
+    public PerfilDTO(String photoPath) {
+        this.photoPath = photoPath;
+    }
 }

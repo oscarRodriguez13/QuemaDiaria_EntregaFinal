@@ -108,7 +108,7 @@ public class UsuarioArchivosRepositorioTest {
         usuario2 = new Usuario("1234567890", "usuario2@javeriana.edu.co", new Credenciales("user2", "contrasenia2"));
         //archivosRepositorio.guardarListaUsuarios(List.of(usuario1, usuario2));
 
-        PerfilDTO nuevoPerfil = new PerfilDTO(175, 75, "Normal", "Ganar masa muscular");
+        PerfilDTO nuevoPerfil = new PerfilDTO(175, 75, "Normal", "Ganar masa muscular", "");
         archivosRepositorio.actualizarPerfil(nuevoPerfil, usuario1);
 
         Usuario usuarioActualizado = archivosRepositorio.consultarUsuarioPorUserName("user1");

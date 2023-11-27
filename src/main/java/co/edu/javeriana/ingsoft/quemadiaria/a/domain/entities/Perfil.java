@@ -15,6 +15,8 @@ public class Perfil {
         this.photoPath = photoPath;
     }
 
+
+
     public int getAltura() {
         return altura;
     }

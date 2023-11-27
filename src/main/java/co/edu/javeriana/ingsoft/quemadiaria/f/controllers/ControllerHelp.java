@@ -2,7 +2,10 @@ package co.edu.javeriana.ingsoft.quemadiaria.f.controllers;
 
 import co.edu.javeriana.ingsoft.quemadiaria.MenuLogin;
 import co.edu.javeriana.ingsoft.quemadiaria.a.domain.entities.Credenciales;
+import co.edu.javeriana.ingsoft.quemadiaria.a.domain.entities.Usuario;
 import co.edu.javeriana.ingsoft.quemadiaria.c.services.dto.LoginDTO;
+import co.edu.javeriana.ingsoft.quemadiaria.c.services.facade.ConsultaFacade;
+import co.edu.javeriana.ingsoft.quemadiaria.c.services.facade.ConsultaUsuariosFacade;
 import co.edu.javeriana.ingsoft.quemadiaria.e.interfaces.Command;
 import co.edu.javeriana.ingsoft.quemadiaria.f.controllers.command.*;
 import javafx.animation.TranslateTransition;
@@ -13,6 +16,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
@@ -50,6 +55,12 @@ public class ControllerHelp implements Initializable {
     private Label question2;
     @FXML
     private Label answer2;
+    @FXML
+    private ImageView icon1;
+    @FXML
+    private ImageView icon2;
+    @FXML
+    private ImageView menuPhoto;
     private LoginDTO loginDTO;
 
     public void setMainApp(MenuLogin mainApp, LoginDTO loginDTO) {
@@ -66,6 +77,14 @@ public class ControllerHelp implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         if (loginDTO != null) {
+            ConsultaFacade consultaUsuariosFacade = new ConsultaUsuariosFacade();
+            Usuario usuarioActual = consultaUsuariosFacade.consultarUsuario(loginDTO);
+
+            String path = getClass().getResource(usuarioActual.getPerfil().getPhotoPath()).toExternalForm();
+            Image image = new Image(path);
+            icon1.setImage(image);
+            icon2.setImage(image);
+            menuPhoto.setImage(image);
             textUser.setText(loginDTO.getUsername());
             setUpAccount.setTranslateX(171);
             cuenta1.setVisible(true);

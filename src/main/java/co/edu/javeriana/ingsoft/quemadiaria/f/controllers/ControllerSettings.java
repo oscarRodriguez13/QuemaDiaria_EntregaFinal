@@ -18,6 +18,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
@@ -47,6 +49,14 @@ public class ControllerSettings implements Initializable {
     private Text textMail;
     @FXML
     private Text textObjective;
+    @FXML
+    private ImageView icon1;
+    @FXML
+    private ImageView icon2;
+    @FXML
+    private ImageView menuPhoto;
+    @FXML
+    private ImageView profilePicture;
     private LoginDTO loginDTO;
 
     public void setMainApp(MenuLogin mainApp, LoginDTO loginDTO) {
@@ -64,6 +74,13 @@ public class ControllerSettings implements Initializable {
         if (loginDTO != null) {
             ConsultaUsuariosFacade consultaUsuariosFacade = new ConsultaUsuariosFacade();
             Usuario usuarioActual = consultaUsuariosFacade.consultarUsuario(loginDTO);
+
+            String path = getClass().getResource(usuarioActual.getPerfil().getPhotoPath()).toExternalForm();
+            Image image = new Image(path);
+            icon1.setImage(image);
+            icon2.setImage(image);
+            menuPhoto.setImage(image);
+            profilePicture.setImage(image);
             textUser.setText(loginDTO.getUsername());
             textMail.setText(usuarioActual.getCorreo());
             textObjective.setText(usuarioActual.getPerfil().getObjetivo());
